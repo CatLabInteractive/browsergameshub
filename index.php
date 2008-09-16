@@ -1,10 +1,18 @@
-<html>
-	<head>
-		<title>Browser Games Hub</title>
-	</head>
+<?php
+include ('php/connect.php');
+
+$page = Pages_Page::getRightPage ();
+
+if ($page)
+{
+	echo $page->getOutput ();
+}
+else
+{
+	header('Status: 404 Not Found');
+	header('HTTP/1.0 404 Not Found');
 	
-	<body>
-		<h1>Browser Games Hub</h1>
-		<p>Online soon!</p>
-	</body>
-</html>
+	echo 'Page not found!';
+}
+
+?>
