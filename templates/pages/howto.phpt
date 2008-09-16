@@ -22,16 +22,7 @@
 <pre class="source"><?php echo htmlentities ('<link rel="browser-game-info" href="http://link-to-your-xml-file/info.xml">'); ?></pre>
 
 <h3>Step 3: Validate and add your game</h3>
-<p>Now add your game to our list by validating it. Our system will check if the XML is reachable and valid. Mind that you can validate your XML multiple times, but it will only be added once.</p>
-
-<form method="post" onsubmit="alert ('Online soon... please hang on.'); return false;">
-	<fieldset>
-		<legend>Information XML Validator</legend>
-		<label>Information XML URL</label>
-		<input type="text" name="infourl">
-		<button type="submit">Validate</button>
-	</fieldset>
-</form>
+<?php include ('validator/form.phpt'); ?>
 
 <h2>Advanced implementation</h2>
 <p>This is just the beginning! If you were able to validate your simple XML, you can add way more information to your XML. Take a look at <a href="http://master.dolumar.be/serverlist/list/">this example</a> or go straight to the <a href="http://wiki.dolumar.be/index.php/Browser_Games_Hub">advanced documentation</a>.</p>

@@ -34,6 +34,12 @@ body
 {
 	list-style-type: none;
 	padding: 0px 10px;
+	margin-top: 8px;
+}
+
+#navigation ul li
+{
+	padding-bottom: 10px;
 }
 
 a
@@ -54,6 +60,19 @@ h1
 	font-size: 35px;
 }
 
+h2, h3
+{
+	margin-bottom: 0px;
+	margin: 6px 0px;
+}
+
+p
+{
+	padding: 0px;
+	margin: 8px 0px;
+	line-height: 160%;
+}
+
 pre.source
 {
 	border: 1px solid gold;
@@ -62,6 +81,28 @@ pre.source
 	
 	font-size: 11px;
 }
+
+p.comment
+{
+	border: 1px solid gold;
+	background: #ffffd8;
+	padding: 5px 8px;
+}
+
+p.false
+{
+	background-color: #ffeeee; 
+	border: 1px solid red;
+	padding: 5px 8px;
+}
+
+p.true
+{
+	background-color: #eeffff; 
+	border: 1px solid green;
+	padding: 5px 8px;
+}
+
 
 /* Forms */
 label
