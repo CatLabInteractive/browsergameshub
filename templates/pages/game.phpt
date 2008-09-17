@@ -1,7 +1,8 @@
-<p style="float: right;"><a href="<?=$game->getData ('site_url')?>">Visit site</a></p>
 <h2><?=$game->getData ('name')?></h2>
 
 <p><?=$game->getDescription ('en')?></p>
+
+<p class="playnow"><a href="<?=$game->getData ('site_url')?>">Visit site</a></p>
 
 <div id="general-information">
 	<h3>General Information</h3>
