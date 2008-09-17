@@ -14,7 +14,7 @@
 <p>Copy this layout to a file and upload it to your webserver. Make sure this file is accessable from the web.</p>
 
 <h3>Step 2: Security</h3>
-<p>To prevent identity theft and phishing, we have added a security check: your portal_url website must contain an (invisible) link to your XML file.</p>
+<p>To prevent identity theft and phishing, we have added a security check: your site_url website must contain an (invisible) link to your XML file.</p>
 
 <p>Edit and add the following line to the head section of your portal site:</p>
 <pre class="source"><?php echo htmlentities ('<link rel="browser-game-info" href="http://link-to-your-xml-file/info.xml">'); ?></pre>
