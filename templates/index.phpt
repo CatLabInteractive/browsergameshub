@@ -6,7 +6,7 @@
 	
 	<body>
 		<div id="container">
-			<h1>Brower Games Hub</h1>
+			<h1>Browser Games Hub</h1>
 			<div id="navigation"><?=$navigation?></div>
 			<div id="content"><?=$content?></div>
 			

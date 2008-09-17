@@ -137,14 +137,14 @@ class BrowserGame_Information
 		
 		if (empty ($content))
 		{
-			$this->addError ('Could not connect to portal site.');
+			$this->addError ('Could not connect to your site.');
 			return false;
 		}
 		
 		// Look for back link
 		// <link rel="browser-game-info" href="http://master.dolumar.be/serverlist/list/">
 		
-		$check = '<link rel="browser-game-info" href="'.$this->sUrl.'">';
+		$check = $this->sUrl;
 		
 		if (stripos ($content, $check) === false)
 		{
