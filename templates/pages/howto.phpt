@@ -5,12 +5,10 @@
 <p>This is the minimal XML layout:</p>
 <pre class="source"><?php 
 	echo htmlentities
-	('<root version="0.1">
-	<content>
-		<name>Your game name</name>
-		<portal_url>http://www.your-url.com/<portal_url>
-	</content>
-</root>');
+	('<browsergameshub version="0.1">
+	<name>Your game name</name>
+	<portal_url>http://www.your-url.com/<portal_url>
+</browsergameshub>');
 ?></pre>
 
 <p>Copy this layout to a file and upload it to your webserver. Make sure this file is accessable from the web.</p>

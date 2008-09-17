@@ -62,7 +62,7 @@ class BrowserGame_Information
 		
 		if (!$dom)
 		{
-			$this->sError = 'Could not validate your XML file. It seems like the file does not valid XML data.';
+			$this->sError = 'Could not validate your XML file. It seems like the file does not contain valid XML data.';
 			return false;
 		}
 		
