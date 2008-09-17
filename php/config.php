@@ -22,10 +22,10 @@ if
 }
 else
 {
-	define ('DB_USERNAME', 'd6557dol_games');
+	define ('DB_USERNAME', 'browser_games');
 	define ('DB_PASSWORD', 'BmWoeJBpeOBPIjsmEZHpOIBE654EomijBEmHW');
 	define ('DB_SERVER', 'localhost');
-	define ('DB_DATABASE', 'd6557dol_games');
+	define ('DB_DATABASE', 'browser_games');
 }
 
 define ('BASE_URL', '');
