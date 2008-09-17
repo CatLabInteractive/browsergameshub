@@ -80,7 +80,7 @@ function __autoload ($class_name)
 		}
 		
 		else {
-			echo ("Class not found: ".$url.".");
+			//echo ("Class not found: ".$url.".");
 			return false;
 		}
 	}

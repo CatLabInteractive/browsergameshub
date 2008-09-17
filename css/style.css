@@ -136,3 +136,15 @@ table
 {
 	text-align: left;
 }
+
+#general-information
+{
+	width: 48%;
+	float: left;
+}
+
+#servers
+{
+	width: 50%;
+	float: right;
+}

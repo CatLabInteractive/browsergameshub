@@ -132,7 +132,20 @@ class BrowserGame_Information
 		return true;
 	}
 	
-	public function getData ($data)
+	public function getData ($data, $default = false)
+	{
+		$element = $this->getElement ($data);
+		if ($element)
+		{
+			return $element->nodeValue;
+		}
+		else
+		{
+			return $default;
+		}
+	}
+	
+	private function getElement ($data)
 	{
 		$dom = $this->getDom ();
 		if ($dom)
@@ -151,10 +164,72 @@ class BrowserGame_Information
 			
 			if ($content && $content->length > 0)
 			{
-				return $content->item (0)->nodeValue;
+				return $content->item (0);
 			}
 		}
 		return false;
+	}
+	
+	public function getDescription ($lang = 'en')
+	{
+		$descriptions = $this->getElement ('descriptions');
+		if (!$descriptions)
+		{
+			return false;
+		}
+		
+		$descriptions = $descriptions->getElementsByTagName ('description');
+		for ($i = 0; $i < $descriptions->length; $i ++)
+		{
+			$item = $descriptions->item ($i);
+			$attribute = $item->getAttributeNode ('lang');
+			if ($attribute->value == $lang)
+			{
+				return $item->nodeValue;
+			}
+		}
+		return false;
+	}
+	
+	public function getServers ($lang = 'en')
+	{
+		$descriptions = $this->getElement ('servers');
+		if (!$descriptions)
+		{
+			return array ();
+		}
+		
+		$descriptions = $descriptions->getElementsByTagName ('server');
+		
+		$out = array ();
+		
+		// Default information
+		$base_info = array
+		(
+			'name' => '?',
+			'version' => '?',
+			'game_url' => '#',
+			'ranking_url' => null,
+			'openid_url' => null,
+			'players' => '?',
+			'status' => '?',
+			'description' => '?'
+		);
+		
+		for ($i = 0; $i < $descriptions->length; $i ++)
+		{
+			$tmp = $base_info;
+			
+			$domnodes = $descriptions->item($i)->childNodes;
+			for ($j = 0; $j < $domnodes->length; $j ++)
+			{
+				$tmp[$domnodes->item ($j)->nodeName] = $domnodes->item ($j)->nodeValue;
+			}
+			
+			$out[] = $tmp;
+		}
+		
+		return $out;
 	}
 	
 	private function addError ($error)

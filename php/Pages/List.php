@@ -21,8 +21,8 @@ class Pages_List extends Pages_Page
 		{
 			$games[] = array
 			(
-				//'url' => '?p=game&id='.$v['b_id'],
-				'url' => 'javascript:alert(\'Online soon\');',
+				'url' => '?p=game&id='.$v['b_id'],
+				//'url' => 'javascript:alert(\'Online soon\');',
 				'name' => $v['b_name'],
 				'genre' => $v['b_genre']
 			);
