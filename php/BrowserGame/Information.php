@@ -31,7 +31,7 @@ class BrowserGame_Information
 				return false;
 			}
 			
-			$this->dom = @DOMDocument::loadXML ($content);
+			$this->dom = DOMDocument::loadXML ($content);
 		}
 		return $this->dom;
 	}
@@ -41,7 +41,7 @@ class BrowserGame_Information
 		$dom = $this->getDom ();
 		if ($dom)
 		{
-			$content = $dom->getElementsByTagName('root')->item (0)->getElementsByTagName('content')->item (0);
+			$content = @$dom->getElementsByTagName('browsergameshub')->item (0);
 			return $content->getElementsByTagName ('portal_url')->item (0)->nodeValue;
 		}
 		return false;
