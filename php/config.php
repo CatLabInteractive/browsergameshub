@@ -5,7 +5,7 @@
 	
 */ 
 
-define ('BASE_PATH', dirname (dirname (__FILE__)));
+define ('BASE_PATH', dirname (dirname (__FILE__)).'/');
 
 if 
 (
@@ -32,5 +32,7 @@ define ('BASE_URL', '');
 define ('TIME_ZONE', 'Europe/Brussels');
 
 define ('DEFAULT_TEMPLATE_DIR', 'templates/');
+define ('CACHE_PATH', BASE_PATH.'public/');
+define ('SCHEMA_PATH', BASE_PATH.'schema/');
 
 ?>

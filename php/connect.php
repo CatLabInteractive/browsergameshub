@@ -59,7 +59,7 @@ function __autoload ($class_name)
 		$v = explode ('_', $class_name);
 		
 		$p = count ($v) - 1;
-		$url = BASE_URL.'php';
+		$url = BASE_PATH.'php';
 		
 		foreach ($v as $k => $vv)
 		{
@@ -80,46 +80,46 @@ function __autoload ($class_name)
 		}
 		
 		else {
-			//echo ("Class not found: ".$url.".");
+			echo ("Class not found: ".$url.".");
 			return false;
 		}
 	}
 }
 
-function getPriceFromCurrency ($currency)
+function libxml_display_error($error)
 {
-	$curs = config_getPriceList ();
-	foreach ($curs as $v)
-	{
-		if (strtolower ($currency) == strtolower ($v['tag']))
-		{
-			return array ('tag' => $v['tag'], 'cost' => $v['cost']);
-		}
-	}
-	return array ('tag' => $curs[0]['tag'], 'cost' => $curs[0]['cost']);
+    $return = "";
+    switch ($error->level) {
+        case LIBXML_ERR_WARNING:
+            $return .= "<b>Warning $error->code</b>: ";
+            break;
+        case LIBXML_ERR_ERROR:
+            $return .= "<b>Error $error->code</b>: ";
+            break;
+        case LIBXML_ERR_FATAL:
+            $return .= "<b>Fatal Error $error->code</b>: ";
+            break;
+    }
+    $return .= trim($error->message);
+    if ($error->file) {
+      //  $return .=    " in <b>$error->file</b>";
+    }
+    //$return .= " on line <b>$error->line</b>\n";
+
+    return $return;
 }
 
-function checkIncomingUrl ($sUrl)
-{
-	return true; // Disable security
-	
-	foreach (config_getClientUrls () as $v)
-	{
-		if (strpos ($sUrl, $v) !== false)
-		{
-			return true;
-		}
-	}
-	return false;
+function libxml_display_errors() {
+    $errors = libxml_get_errors();
+    
+    $out = array ();
+    foreach ($errors as $error) {
+        $out[] = libxml_display_error($error);
+    }
+    libxml_clear_errors();
+    
+    return $out;
 }
 
-function checkAPIKey ($sKey)
-{
-	$key1 = md5 (md5 (PREMIUM_API_KEY.date ('dDWY', time () + 60*24*24).PREMIUM_API_KEY));
-	$key2 = md5 (md5 (PREMIUM_API_KEY.date ('dDWY', time () - 60*24*24).PREMIUM_API_KEY));
-	$key3 = md5 (md5 (PREMIUM_API_KEY.date ('dDWY', time ()).PREMIUM_API_KEY));
-	
-	return $sKey == $key1 || $sKey == $key2 || $sKey == $key3;
-}
-
+libxml_use_internal_errors(true);
 ?>

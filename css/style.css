@@ -119,3 +119,20 @@ button
 {
 	display: block;
 }
+
+table
+{
+	font-size: 11px;
+	border: 1px solid gold;
+	width: 100%;
+}
+
+.center
+{
+	text-align: center;
+}
+
+.left
+{
+	text-align: left;
+}

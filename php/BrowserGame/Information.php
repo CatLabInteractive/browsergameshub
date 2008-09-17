@@ -1,41 +1,4 @@
 <?php
-function libxml_display_error($error)
-{
-    $return = "";
-    switch ($error->level) {
-        case LIBXML_ERR_WARNING:
-            $return .= "<b>Warning $error->code</b>: ";
-            break;
-        case LIBXML_ERR_ERROR:
-            $return .= "<b>Error $error->code</b>: ";
-            break;
-        case LIBXML_ERR_FATAL:
-            $return .= "<b>Fatal Error $error->code</b>: ";
-            break;
-    }
-    $return .= trim($error->message);
-    if ($error->file) {
-      //  $return .=    " in <b>$error->file</b>";
-    }
-    //$return .= " on line <b>$error->line</b>\n";
-
-    return $return;
-}
-
-function libxml_display_errors() {
-    $errors = libxml_get_errors();
-    
-    $out = array ();
-    foreach ($errors as $error) {
-        $out[] = libxml_display_error($error);
-    }
-    libxml_clear_errors();
-    
-    return $out;
-}
-
-libxml_use_internal_errors(true);
-
 class BrowserGame_Information
 {
 	private $sUrl;
@@ -71,6 +34,17 @@ class BrowserGame_Information
 			$this->dom = DOMDocument::loadXML ($content);
 		}
 		return $this->dom;
+	}
+	
+	public function getXMLDump ()
+	{
+		$dom = $this->getDOM ();
+		
+		if ($dom)
+		{
+			return $dom->saveXML ();
+		}
+		return false;
 	}
 	
 	public function getPortalUrl ()
@@ -113,7 +87,7 @@ class BrowserGame_Information
 		}
 		
 		// Check for validation (overwritten)
-		if (!$dom->schemaValidate ('schema/information.xsd'))
+		if (!$dom->schemaValidate (SCHEMA_PATH.'information.xsd'))
 		{
 			foreach (libxml_display_errors () as $v)
 			{
@@ -156,6 +130,31 @@ class BrowserGame_Information
 		}
 		
 		return true;
+	}
+	
+	public function getData ($data)
+	{
+		$dom = $this->getDom ();
+		if ($dom)
+		{
+			$content = $dom->getElementsByTagName('browsergameshub');
+			if ($content && $content->length > 0)
+			{
+				$content = $content->item (0);
+			}
+			else
+			{
+				return false;
+			}
+			
+			$content = $content->getElementsByTagName ($data);
+			
+			if ($content && $content->length > 0)
+			{
+				return $content->item (0)->nodeValue;
+			}
+		}
+		return false;
 	}
 	
 	private function addError ($error)
