@@ -31,7 +31,7 @@ class BrowserGame_Information
 				return false;
 			}
 			
-			$this->dom = DOMDocument::loadXML ($content);
+			$this->dom = @DOMDocument::loadXML ($content);
 		}
 		return $this->dom;
 	}

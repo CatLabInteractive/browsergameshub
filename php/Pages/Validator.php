@@ -35,6 +35,30 @@ class Pages_Validator extends Pages_Page
 				$page->set ('success', 'Your XML appears to be valid. It has been added to our list. '.
 					'Please remember that your XML will be validated before every use. <br />'.
 					'Feel free to re-validate your XML any time.');
+					
+				// Insert
+				$db = Core_Database::__getInstance ();
+				
+				// Check if it's already in the database
+				$chk = $db->select
+				(
+					'b_browsergames',
+					array ('*'),
+					"b_url = '".$db->escape ($url)."'"
+				);
+				
+				if (count ($chk) == 0)
+				{
+					$db->insert
+					(
+						'b_browsergames',
+						array
+						(
+							'b_url' => $url,
+							'b_lastCheck' => date ('Y-m-d H:i:s')
+						)
+					);
+				}
 			}
 			else
 			{

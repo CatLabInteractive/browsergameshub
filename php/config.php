@@ -18,14 +18,14 @@ if
 	define ('DB_USERNAME', 'myuser');
 	define ('DB_PASSWORD', 'myuser');
 	define ('DB_SERVER', 'localhost');
-	define ('DB_DATABASE', 'serverlist');
+	define ('DB_DATABASE', 'browsergames');
 }
 else
 {
-	define ('DB_USERNAME', 'd6557dol_premium');
+	define ('DB_USERNAME', 'd6557dol_games');
 	define ('DB_PASSWORD', 'BmWoeJBpeOBPIjsmEZHpOIBE654EomijBEmHW');
 	define ('DB_SERVER', 'localhost');
-	define ('DB_DATABASE', 'd6557dol_premium');
+	define ('DB_DATABASE', 'd6557dol_games');
 }
 
 define ('BASE_URL', '');
