@@ -4,5 +4,9 @@
 	<p class="comment"><?=$portalcheck?></p>
 <?php } ?>
 
-<?php if (isset ($error)) { ?><p class="false"><?=$error?></p><?php } ?>
+<?php if (isset ($error)) { ?>
+	<?php foreach ($error as $v) { ?>
+		<p class="false"><?=$v?></p>
+	<?php } ?>
+<?php } ?>
 <?php if (isset ($success)) { ?><p class="true"><?=$success?></p><?php } ?>

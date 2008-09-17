@@ -7,7 +7,7 @@
 	echo htmlentities
 	('<browsergameshub version="0.1">
 	<name>Your game name</name>
-	<portal_url>http://www.your-url.com/<portal_url>
+	<site_url>http://www.your-url.com/<site_url>
 </browsergameshub>');
 ?></pre>
 

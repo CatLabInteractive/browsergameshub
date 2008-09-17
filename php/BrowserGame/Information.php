@@ -1,8 +1,45 @@
 <?php
+function libxml_display_error($error)
+{
+    $return = "";
+    switch ($error->level) {
+        case LIBXML_ERR_WARNING:
+            $return .= "<b>Warning $error->code</b>: ";
+            break;
+        case LIBXML_ERR_ERROR:
+            $return .= "<b>Error $error->code</b>: ";
+            break;
+        case LIBXML_ERR_FATAL:
+            $return .= "<b>Fatal Error $error->code</b>: ";
+            break;
+    }
+    $return .= trim($error->message);
+    if ($error->file) {
+      //  $return .=    " in <b>$error->file</b>";
+    }
+    //$return .= " on line <b>$error->line</b>\n";
+
+    return $return;
+}
+
+function libxml_display_errors() {
+    $errors = libxml_get_errors();
+    
+    $out = array ();
+    foreach ($errors as $error) {
+        $out[] = libxml_display_error($error);
+    }
+    libxml_clear_errors();
+    
+    return $out;
+}
+
+libxml_use_internal_errors(true);
+
 class BrowserGame_Information
 {
 	private $sUrl;
-	private $sError;
+	private $sError = array ();
 	
 	private $xml = null;
 	private $dom = null;
@@ -41,8 +78,17 @@ class BrowserGame_Information
 		$dom = $this->getDom ();
 		if ($dom)
 		{
-			$content = @$dom->getElementsByTagName('browsergameshub')->item (0);
-			return $content->getElementsByTagName ('portal_url')->item (0)->nodeValue;
+			$content = $dom->getElementsByTagName('browsergameshub');
+			if ($content && $content->length > 0)
+			{
+				$content = $content->item (0);
+			}
+			else
+			{
+				return false;
+			}
+			
+			return $content->getElementsByTagName ('site_url')->item (0)->nodeValue;
 		}
 		return false;
 	}
@@ -54,7 +100,7 @@ class BrowserGame_Information
 		
 		if (empty ($content))
 		{
-			$this->sError = 'Could not connect to server. Please make sure your XML is readable.';
+			$this->addError ('Could not connect to server. Please make sure your XML is readable.');
 			return false;
 		}
 		
@@ -62,17 +108,23 @@ class BrowserGame_Information
 		
 		if (!$dom)
 		{
-			$this->sError = 'Could not validate your XML file. It seems like the file does not contain valid XML data.';
+			$this->addError ('Could not validate your XML file. It seems like the file does not contain valid XML data.');
 			return false;
 		}
 		
 		// Check for validation (overwritten)
-		if (false && !$dom->schemaValidate ('schema/information.dtd'))
+		if (!$dom->schemaValidate ('schema/information.xsd'))
 		{
-			$this->sError = 'Could not validate your XML to the DTD. Are you sure you have included all required elements?';
+			foreach (libxml_display_errors () as $v)
+			{
+				$this->addError ($v);
+			}
+			
+			$this->addError ('XML Validation failed, please check the XML schema <a href="schema/information.xsd">here</a>.');
+			
 			return false;
 		}
-				
+		
 		return true;
 	}
 	
@@ -85,7 +137,7 @@ class BrowserGame_Information
 		
 		if (empty ($content))
 		{
-			$this->sError = 'Could not connect to portal site.';
+			$this->addError ('Could not connect to portal site.');
 			return false;
 		}
 		
@@ -96,14 +148,19 @@ class BrowserGame_Information
 		
 		if (stripos ($content, $check) === false)
 		{
-			$this->sError = 'Could not find the a link back to the information XML. <br />'.
+			$this->addError ('Could not find the a link back to the information XML. <br />'.
 				'Please put the following code in the portal sites header: <br />'.
-				htmlentities ($check);
+				htmlentities ($check));
 				
 			return false;
 		}
 		
 		return true;
+	}
+	
+	private function addError ($error)
+	{
+		$this->sError[] = $error;
 	}
 	
 	public function getError ()
