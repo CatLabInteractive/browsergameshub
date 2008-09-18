@@ -1,8 +1,4 @@
 <h2>Browser Games</h2>
-<p class="comment" style="text-align: center;">
-	Our list of browser based games is available in <a href="<?=BASE_URL?>xml/">XML</a>. <br />
-	All games in this XML have a valid information XML.
-</p>
 <table>
 
 	<tr>
@@ -23,3 +19,8 @@
 		</tr>
 	<?php } ?>
 </table>
+
+<p class="comment" style="text-align: center;">
+	Our list of browser based games is available in <a href="<?=BASE_URL?>xml/">XML</a>. <br />
+	All games in this XML have a valid information XML.
+</p>
