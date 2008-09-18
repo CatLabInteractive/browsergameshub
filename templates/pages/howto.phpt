@@ -23,4 +23,10 @@
 <?php include ('validator/form.phpt'); ?>
 
 <h2>Advanced implementation</h2>
-<p>This is just the beginning! If you were able to validate your simple XML, you can add way more information to your XML. Take a look at <a href="http://master.dolumar.be/serverlist/list/">this example</a> or go straight to the <a href="http://wiki.dolumar.be/index.php/Browser_Games_Hub">advanced documentation</a>.</p>
+<p>This is just the beginning! If you were able to validate your simple XML, you can add way more information to your XML. Take a look at the <a href="http://wiki.dolumar.be/index.php/Browser_Games_Hub">advanced documentation</a>.</p>
+
+<p>Or go straight to the XML schemas:</p>
+<ul>
+	<li><a href="schema/information.xsd">Information Schema</a></li>
+	<li><a href="schema/ranking.xsd">Ranking Schema</a></li>
+</ul>

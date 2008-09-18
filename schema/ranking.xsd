@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--Created with Liquid XML Studio 6.1.17.0 - FREE Community Edition (http://www.liquid-technologies.com)-->
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="browsergameshub">
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="players">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="player">
+                <xs:complexType>
+                  <xs:all>
+                    <xs:element minOccurs="1" maxOccurs="1" name="nickname" type="xs:string" />
+                    <xs:element minOccurs="1" name="score" type="xs:int" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="join_date" type="xs:dateTime" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="openids">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="openid">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute name="hash" type="xs:string" use="optional" />
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:all>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:all>
+      <xs:attribute name="version" type="xs:string" use="optional" />
+      <xs:attribute name="revisit" type="xs:int" use="optional" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

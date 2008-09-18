@@ -2,7 +2,7 @@
 
 <p><?=$game->getDescription ('en')?></p>
 
-<p class="playnow"><a href="<?=$game->getData ('site_url')?>">Visit site</a></p>
+<p class="playnow"><a href="<?=$game->getData ('site_url')?>"><?=$game->getData ('site_url')?></a></p>
 
 <div id="general-information">
 	<h3>General Information</h3>
