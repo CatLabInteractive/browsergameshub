@@ -21,10 +21,13 @@ class Pages_List extends Pages_Page
 		{
 			$games[] = array
 			(
-				'url' => 'game/'.$v['b_id'],
+				'url' => 'game/'.$v['b_id'].'/'.urlencode ($v['b_name']),
 				//'url' => 'javascript:alert(\'Online soon\');',
 				'name' => $v['b_name'],
-				'genre' => $v['b_genre']
+				'genre' => $v['b_genre'],
+				'setting' => $v['b_setting'],
+				'status' => $v['b_status'],
+				'timing' => $v['b_timing']
 			);
 		}
 		

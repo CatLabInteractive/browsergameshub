@@ -33,7 +33,10 @@ foreach ($l as $data)
 				'b_failures' => 0,
 				'b_isValid' => 1,
 				'b_name' => $game->getData ('name'),
-				'b_genre' => $game->getData ('genre')
+				'b_genre' => $game->getData ('genre'),
+				'b_setting' => $game->getData ('setting'),
+				'b_status' => $game->getData ('status'),
+				'b_timing' => $game->getData ('timing')
 			),
 			"b_id = ".$data['b_id']
 		);
