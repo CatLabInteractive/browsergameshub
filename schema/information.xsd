@@ -22,15 +22,57 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" maxOccurs="1" name="genre" type="xs:string" />
-        <xs:element minOccurs="0" maxOccurs="1" name="setting" type="xs:string" />
-        <xs:element minOccurs="0" maxOccurs="1" name="effort" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="genre">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="30" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="setting">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="30" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="effort">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="30" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
         <xs:element minOccurs="0" maxOccurs="1" name="players" type="xs:int" />
-        <xs:element minOccurs="0" maxOccurs="1" name="age_recom" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="age_recom">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="3" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
         <xs:element minOccurs="0" maxOccurs="1" name="logo_url" type="xs:anyURI" />
-        <xs:element minOccurs="0" maxOccurs="1" name="status" type="xs:string" />
-        <xs:element minOccurs="0" maxOccurs="1" name="payment" type="xs:string" />
-        <xs:element minOccurs="0" maxOccurs="1" name="timing" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="status">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="10" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="payment">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="10" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="timing">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="10" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
         <xs:element minOccurs="0" maxOccurs="1" name="servers">
           <xs:complexType>
             <xs:sequence>
@@ -38,8 +80,20 @@
                 <xs:complexType>
                   <xs:all>
                     <xs:element minOccurs="0" maxOccurs="1" name="id" type="xs:int" />
-                    <xs:element minOccurs="1" maxOccurs="1" name="name" type="xs:normalizedString" />
-                    <xs:element minOccurs="0" maxOccurs="1" name="version" type="xs:string" />
+                    <xs:element minOccurs="1" maxOccurs="1" name="name">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:normalizedString">
+                          <xs:maxLength value="100" />
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" name="version">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:maxLength value="10" />
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
                     <xs:element minOccurs="1" maxOccurs="1" name="game_url" type="xs:anyURI" />
                     <xs:element minOccurs="0" maxOccurs="1" name="ranking_url" type="xs:anyURI" />
                     <xs:element minOccurs="0" maxOccurs="1" name="openid_url" type="xs:anyURI" />
@@ -59,7 +113,13 @@
                       </xs:complexType>
                     </xs:element>
                     <xs:element minOccurs="0" maxOccurs="1" name="players" type="xs:int" />
-                    <xs:element minOccurs="0" maxOccurs="1" name="status" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="status">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:maxLength value="10" />
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
                   </xs:all>
                   <xs:attribute name="group" type="xs:normalizedString" use="optional" />
                 </xs:complexType>
