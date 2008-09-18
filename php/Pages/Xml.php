@@ -22,6 +22,9 @@ class Pages_Xml extends Pages_Page
 			(
 				'name' => $v['b_name'],
 				'genre' => $v['b_genre'],
+				'setting' => $v['b_settings'],
+				'status' => $v['b_status'],
+				'timing' => $v['b_timing'],
 				'info_xml' => BASE_URL.'public/information/'.$v['b_id'].'.xml'
 			);
 		}
