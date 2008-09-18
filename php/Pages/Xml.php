@@ -27,7 +27,7 @@ class Pages_Xml extends Pages_Page
 		}
 		
 		header ('Content-type: text/xml');
-		echo Core_Tools::output_xml ($output, 0.1, 'browsergameshub');
+		echo Core_Tools::output_xml ($output, 0.1, 'browsergames');
 	}
 }
 ?>
