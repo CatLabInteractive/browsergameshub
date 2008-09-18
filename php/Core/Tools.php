@@ -605,7 +605,7 @@ class Core_Tools
 		);
 	}
 	
-	public function output_xml ($data)
+	public function output_xml ($data, $version = '0.1', $root = 'root')
 	{
 		function writexml (XMLWriter $xml, $data, $item_name = 'item')
 		{
@@ -619,6 +619,17 @@ class Core_Tools
 				if (is_array($value))
 				{
 					$xml->startElement($key);
+					
+					if (isset ($value['attributes']) && is_array ($value['attributes']))
+					{
+						foreach ($value['attributes'] as $k => $v)
+						{
+							$xml->writeAttribute ($k, $v);
+						}
+						
+						unset ($value['attributes']);
+					}
+					
 					writexml ($xml, $value, substr ($key, 0, -1));
 					$xml->endElement();
 				}
@@ -633,7 +644,9 @@ class Core_Tools
 		$xml = new XmlWriter();
 		$xml->openMemory();
 		$xml->startDocument('1.0', 'UTF-8');
-		$xml->startElement('root');
+		$xml->startElement($root);
+		
+		$xml->writeAttribute ('version', $version);
 
 		writexml ($xml, $data);
 

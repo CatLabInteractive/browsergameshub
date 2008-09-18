@@ -6,7 +6,7 @@
 		<link rel="stylesheet" href="<?=BASE_URL?>css/lightbox.css" type="text/css" media="screen" />
 		
 		<script type="text/javascript">
-			var BASE_URL = '<?=BASE_URL?>';
+			const BASE_URL = '<?=BASE_URL?>';
 		</script>
 	
 		<script src="<?=BASE_URL?>js/prototype.js" type="text/javascript"></script>
