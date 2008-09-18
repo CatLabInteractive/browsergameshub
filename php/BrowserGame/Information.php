@@ -138,7 +138,7 @@ class BrowserGame_Information
 		$element = $this->getElement ($data);
 		if ($element)
 		{
-			return $element->nodeValue;
+			return htmlentities ($element->nodeValue);
 		}
 		else
 		{
