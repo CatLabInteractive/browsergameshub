@@ -1,13 +1,17 @@
 <html>
 	<head>
 		<title>Browser Games Hub</title>
-		<link href="css/style.css" rel="stylesheet" type="text/css" />
+		<link href="<?=BASE_URL?>css/style.css" rel="stylesheet" type="text/css" />
 		
-		<link rel="stylesheet" href="css/lightbox.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="<?=BASE_URL?>css/lightbox.css" type="text/css" media="screen" />
+		
+		<script type="text/javascript">
+			var BASE_URL = '<?=BASE_URL?>';
+		</script>
 	
-		<script src="js/prototype.js" type="text/javascript"></script>
-		<script src="js/scriptaculous.js?load=effects,builder" type="text/javascript"></script>
-		<script src="js/lightbox.js" type="text/javascript"></script>
+		<script src="<?=BASE_URL?>js/prototype.js" type="text/javascript"></script>
+		<script src="<?=BASE_URL?>js/scriptaculous.js?load=effects,builder" type="text/javascript"></script>
+		<script src="<?=BASE_URL?>js/lightbox.js" type="text/javascript"></script>
 	</head>
 	
 	<body>

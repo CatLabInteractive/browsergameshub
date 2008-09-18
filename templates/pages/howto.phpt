@@ -27,6 +27,6 @@
 
 <p>Or go straight to the XML schemas:</p>
 <ul>
-	<li><a href="schema/information.xsd">Information Schema</a></li>
-	<li><a href="schema/ranking.xsd">Ranking Schema</a></li>
+	<li><a href="<?=BASE_URL?>schema/information.xsd">Information Schema</a></li>
+	<li><a href="<?=BASE_URL?>schema/ranking.xsd">Ranking Schema</a></li>
 </ul>

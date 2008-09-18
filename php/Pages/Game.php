@@ -3,7 +3,7 @@ class Pages_Game extends Pages_Page
 {
 	public function getContent ()
 	{
-		$id = Core_Tools::getInput ('_GET', 'id', 'int');
+		$id = $this->getRequestInput (1);
 		
 		$page = new Core_Template ();
 		

@@ -19,6 +19,8 @@ if
 	define ('DB_PASSWORD', 'myuser');
 	define ('DB_SERVER', 'localhost');
 	define ('DB_DATABASE', 'browsergames');
+	
+	define ('BASE_URL', 'http://'.$_SERVER['SERVER_NAME'].'/browsergamehub/');
 }
 else
 {
@@ -26,9 +28,10 @@ else
 	define ('DB_PASSWORD', 'BmWoeJBpeOBPIjsmEZHpOIBE654EomijBEmHW');
 	define ('DB_SERVER', 'localhost');
 	define ('DB_DATABASE', 'browser_games');
+	
+	define ('BASE_URL', 'http://'.$_SERVER['SERVER_NAME'].'/');
 }
 
-define ('BASE_URL', '');
 define ('TIME_ZONE', 'Europe/Brussels');
 
 define ('DEFAULT_TEMPLATE_DIR', 'templates/');

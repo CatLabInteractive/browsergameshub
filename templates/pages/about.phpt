@@ -17,4 +17,4 @@
 <p>Our servers will contact your server once every day and cache the results. Your basic information XML will only be accessed by our servers. The optional <i>Ranking XML</i> however, will not be cached and might be accessed by third party websites.</p>
 
 <h2>So, how do I add my game to this list?</h2>
-<p>Please take a look at <a href="?p=howto">this page</a>.</p>
+<p>Please take a look at <a href="<?=BASE_URL?>howto">this page</a>.</p>
