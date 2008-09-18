@@ -153,3 +153,30 @@ table
 {
 	font-size: 14px;
 }
+
+#screenshots
+{
+	padding-top: 10px;
+	clear: both;
+}
+
+#screenshots td
+{
+	text-align: center;
+}
+
+a img
+{
+	border: 1px solid gray;
+	padding: 2px;
+}
+
+img.logo
+{
+	float: left;
+	margin-top: 3px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	padding: 2px;
+	border: 1px solid gray;
+}

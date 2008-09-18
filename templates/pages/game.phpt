@@ -1,6 +1,13 @@
 <h2><?=$game->getData ('name')?></h2>
 
-<p><?=$game->getDescription ('en')?></p>
+<?php $logo = $game->getData ('logo_url'); ?>
+
+<p>
+	<?php if (!empty ($logo)) { ?>
+		<img class="logo" src="<?=$logo?>" />
+	<?php } ?>
+	<?=$game->getDescription ('en')?>
+</p>
 
 <p class="playnow"><a href="<?=$game->getData ('site_url')?>"><?=$game->getData ('site_url')?></a></p>
 
@@ -77,3 +84,26 @@
 		<?php } ?>
 	</table>
 </div>
+
+<?php $screenshots = $game->getScreenshots (); ?>
+
+<?php if (count ($screenshots) > 0) { ?>
+	<div id="screenshots">
+		<h3>Screenshots</h3>
+	
+		<table>
+			<?php $i = 0; $first = true; ?>
+		
+			<?php foreach ($screenshots as $v) { ?>
+				<?php if ($i % 4 == 0) { if (!$first) { echo '</tr>'; $first = false; } ?><tr><?php }  $i ++; ?>
+				<td style="width: 25%;">
+					<a href="<?=$v['url']?>" rel="lightbox[screenshots]"><img src="<?=$v['url']?>" style="width: 96%;" title="<?=$v['description']?>" /></a>
+				</td>
+			<?php } ?>
+		
+			<?php for ($j = $i; $j < 4; $j ++) { ?>
+				<td>&nbsp;</td>
+			<?php } ?>
+		</table>
+	</div>
+<?php } ?>

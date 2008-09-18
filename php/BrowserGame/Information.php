@@ -118,9 +118,10 @@ class BrowserGame_Information
 		// Look for back link
 		// <link rel="browser-game-info" href="http://master.dolumar.be/serverlist/list/">
 		
-		$check = $this->sUrl;
+		$check = '"'.$this->sUrl.'"';
+		$check2 = "'".$this->sUrl."'";
 		
-		if (stripos ($content, $check) === false)
+		if (stripos ($content, $check) === false && stripos ($content, $check2) === false)
 		{
 			$this->addError ('Could not find the a link back to the information XML. <br />'.
 				'Please put the following code in the portal sites header: <br />'.
@@ -229,6 +230,32 @@ class BrowserGame_Information
 			$out[] = $tmp;
 		}
 		
+		return $out;
+	}
+	
+	public function getScreenshots ($lang = 'en')
+	{
+		$screenshots = $this->getElement ('screenshots');
+		if (!$screenshots)
+		{
+			return array ();
+		}
+		
+		$screenshots = $screenshots->getElementsByTagName ('screenshot');
+		
+		$out = array ();
+		for ($i = 0; $i < $screenshots->length; $i ++)
+		{
+			$url = $screenshots->item ($i)->getElementsByTagName ('url')->item(0)->nodeValue;
+			
+			$description = $screenshots->item ($i)->getElementsByTagName ('description')->item(0)->childNodes->item(0)->nodeValue;
+			
+			$out[] = array
+			(
+				'url' => $url,
+				'description' => $description
+			);
+		}
 		return $out;
 	}
 	
