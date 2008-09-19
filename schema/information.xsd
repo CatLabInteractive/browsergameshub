@@ -45,7 +45,6 @@
         <xs:element minOccurs="0" maxOccurs="1" name="effort">
           <xs:simpleType>
             <xs:restriction base="xs:string">
-              <xs:maxLength value="30" />
               <xs:enumeration value="low" />
               <xs:enumeration value="average" />
               <xs:enumeration value="high" />
@@ -64,7 +63,6 @@
         <xs:element minOccurs="0" maxOccurs="1" name="status">
           <xs:simpleType>
             <xs:restriction base="xs:string">
-              <xs:maxLength value="10" />
               <xs:enumeration value="planning" />
               <xs:enumeration value="development" />
               <xs:enumeration value="alpha" />
@@ -77,7 +75,6 @@
         <xs:element minOccurs="0" maxOccurs="1" name="payment">
           <xs:simpleType>
             <xs:restriction base="xs:string">
-              <xs:maxLength value="10" />
               <xs:enumeration value="free" />
               <xs:enumeration value="weekly" />
               <xs:enumeration value="monthly" />
@@ -89,7 +86,6 @@
         <xs:element minOccurs="0" maxOccurs="1" name="timing">
           <xs:simpleType>
             <xs:restriction base="xs:string">
-              <xs:maxLength value="10" />
               <xs:enumeration value="realtime" />
               <xs:enumeration value="ticks" />
               <xs:enumeration value="rounds" />
@@ -145,7 +141,6 @@
                     <xs:element minOccurs="0" maxOccurs="1" name="status">
                       <xs:simpleType>
                         <xs:restriction base="xs:string">
-                          <xs:maxLength value="10" />
                           <xs:enumeration value="open" />
                           <xs:enumeration value="closed" />
                           <xs:enumeration value="beta" />
@@ -228,6 +223,7 @@
             </xs:all>
           </xs:complexType>
         </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="rss_url" type="xs:anyURI" />
       </xs:all>
       <xs:attribute name="version" type="xs:string" use="optional" />
       <xs:attribute name="revisit" type="xs:int" use="optional" />
