@@ -16,42 +16,42 @@
 	<table>
 		<tr>
 			<td class="left">Genre</td>
-			<td class="center"><?=$game->getData ('genre', '?')?></td>
+			<td class="center"><?=$game->getData ('genre', 'n/a')?></td>
 		</tr>
 		
 		<tr>
 			<td class="left">Setting</td>
-			<td class="center"><?=$game->getData ('setting', '?')?></td>
+			<td class="center"><?=$game->getData ('setting', 'n/a')?></td>
 		</tr>
 		
 		<tr>
 			<td class="left">Effort</td>
-			<td class="center"><?=$game->getData ('effort', '?')?></td>
+			<td class="center"><?=$game->getData ('effort', 'n/a')?></td>
 		</tr>
 		
 		<tr>
 			<td class="left">Players</td>
-			<td class="center"><?=$game->getData ('players', '?')?></td>
+			<td class="center"><?=$game->getData ('players', 'n/a')?></td>
 		</tr>
 		
 		<tr>
 			<td class="left">Age Recommendation</td>
-			<td class="center"><?=$game->getData ('age_recom', '?')?></td>
+			<td class="center"><?=$game->getData ('age_recom', 'n/a')?></td>
 		</tr>
 		
 		<tr>
 			<td class="left">Status</td>
-			<td class="center"><?=$game->getData ('status', '?')?></td>
+			<td class="center"><?=$game->getData ('status', 'n/a')?></td>
 		</tr>
 		
 		<tr>
 			<td class="left">Payment</td>
-			<td class="center"><?=$game->getData ('payment', '?')?></td>
+			<td class="center"><?=$game->getData ('payment', 'n/a')?></td>
 		</tr>
 		
 		<tr>
 			<td class="left">Timing</td>
-			<td class="center"><?=$game->getData ('timing', '?')?></td>
+			<td class="center"><?=$game->getData ('timing', 'n/a')?></td>
 		</tr>
 	</table>
 </div>
@@ -107,3 +107,7 @@
 		</table>
 	</div>
 <?php } ?>
+
+<p style="font-size: 10px; text-align: right; clear: both;">
+	<a href="<?=$xml_url?>" style="color: black;">Information in XML</a>
+</p>

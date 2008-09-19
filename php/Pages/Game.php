@@ -10,6 +10,7 @@ class Pages_Game extends Pages_Page
 		// Load game from database
 		$game = new BrowserGame_Information (CACHE_PATH.'information/'.intval($id).'.xml');
 		
+		$page->set ('xml_url', BASE_URL.'public/information/'.$id.'.xml');
 		$page->set ('game', $game);
 		
 		return $page->parse ('pages/game.phpt');
