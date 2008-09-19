@@ -46,6 +46,9 @@
           <xs:simpleType>
             <xs:restriction base="xs:string">
               <xs:maxLength value="30" />
+              <xs:enumeration value="low" />
+              <xs:enumeration value="average" />
+              <xs:enumeration value="high" />
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
@@ -53,7 +56,7 @@
         <xs:element minOccurs="0" maxOccurs="1" name="age_recom">
           <xs:simpleType>
             <xs:restriction base="xs:string">
-              <xs:maxLength value="3" />
+              <xs:maxLength value="5" />
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
@@ -62,6 +65,12 @@
           <xs:simpleType>
             <xs:restriction base="xs:string">
               <xs:maxLength value="10" />
+              <xs:enumeration value="planning" />
+              <xs:enumeration value="development" />
+              <xs:enumeration value="alpha" />
+              <xs:enumeration value="beta" />
+              <xs:enumeration value="rc" />
+              <xs:enumeration value="release" />
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
@@ -69,6 +78,11 @@
           <xs:simpleType>
             <xs:restriction base="xs:string">
               <xs:maxLength value="10" />
+              <xs:enumeration value="free" />
+              <xs:enumeration value="weekly" />
+              <xs:enumeration value="monthly" />
+              <xs:enumeration value="yearly" />
+              <xs:enumeration value="optional" />
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
@@ -76,6 +90,9 @@
           <xs:simpleType>
             <xs:restriction base="xs:string">
               <xs:maxLength value="10" />
+              <xs:enumeration value="realtime" />
+              <xs:enumeration value="ticks" />
+              <xs:enumeration value="rounds" />
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
@@ -129,11 +146,16 @@
                       <xs:simpleType>
                         <xs:restriction base="xs:string">
                           <xs:maxLength value="10" />
+                          <xs:enumeration value="open" />
+                          <xs:enumeration value="closed" />
+                          <xs:enumeration value="beta" />
+                          <xs:enumeration value="full" />
                         </xs:restriction>
                       </xs:simpleType>
                     </xs:element>
                   </xs:all>
                   <xs:attribute name="group" type="xs:normalizedString" use="optional" />
+                  <xs:attribute name="prefered" type="xs:boolean" use="optional" />
                 </xs:complexType>
               </xs:element>
             </xs:sequence>
