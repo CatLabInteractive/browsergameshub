@@ -186,10 +186,26 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" maxOccurs="1" name="developer_name" type="xs:string" />
-        <xs:element minOccurs="0" maxOccurs="1" name="developer_url" type="xs:anyURI" />
-        <xs:element minOccurs="0" maxOccurs="1" name="publisher_name" type="xs:string" />
-        <xs:element minOccurs="0" maxOccurs="1" name="publisher_url" type="xs:anyURI" />
+        <xs:element minOccurs="0" maxOccurs="1" name="developer">
+          <xs:complexType>
+            <xs:all>
+              <xs:element minOccurs="1" maxOccurs="1" name="name" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="site_url" type="xs:anyURI" />
+              <xs:element minOccurs="0" maxOccurs="1" name="email" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="logo_url" type="xs:anyURI" />
+            </xs:all>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="publisher">
+          <xs:complexType>
+            <xs:all>
+              <xs:element minOccurs="1" maxOccurs="1" name="name" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="site_url" type="xs:anyURI" />
+              <xs:element minOccurs="0" maxOccurs="1" name="email" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="logo_url" type="xs:anyURI" />
+            </xs:all>
+          </xs:complexType>
+        </xs:element>
       </xs:all>
       <xs:attribute name="version" type="xs:string" use="optional" />
       <xs:attribute name="revisit" type="xs:int" use="optional" />
