@@ -22,8 +22,8 @@ a {color: #048;}
 a:hover {color: #06C;}
 
 body {
-	/*background: #E7E7E2 url('../images/body.jpg') no-repeat center top;*/
-	background: #E7E7E2;
+	background: #E7E7E2 url('../images/body.jpg') no-repeat center top;
+	/*background: #E7E7E2;*/
 	color: #444;
 	font: normal 62.5% Tahoma,sans-serif;
 	padding-top: 10px;
@@ -138,6 +138,7 @@ h1,h2,h3 {padding-top: 6px; color: #553; margin-bottom: 4px;}
 	float: right;
 	width: 538px;
 	min-height: 400px;
+	overflow: hidden;
 }
 .content .descr {
 	color: #664;

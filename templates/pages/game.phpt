@@ -97,7 +97,7 @@
 			<?php foreach ($screenshots as $v) { ?>
 				<?php if ($i % 4 == 0) { if (!$first) { echo '</tr>'; $first = false; } ?><tr><?php }  $i ++; ?>
 				<td style="width: 25%;">
-					<a href="<?=$v['url']?>" rel="lightbox[screenshots]"><img src="<?=$v['url']?>" style="width: 96%;" title="<?=$v['description']?>" /></a>
+					<a href="<?=$v['url']?>" rel="lightbox[screenshots]"><img src="<?=$v['url']?>" style="width: 125px;" title="<?=$v['description']?>" /></a>
 				</td>
 			<?php } ?>
 		

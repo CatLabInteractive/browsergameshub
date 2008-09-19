@@ -17,7 +17,7 @@
 <p>To prevent identity theft and phishing, we have added a security check: your site_url website must contain an (invisible) link to your XML file.</p>
 
 <p>Edit and add the following line to the head section of your portal site:</p>
-<pre class="source"><?php echo htmlentities ('<link rel="browser-game-info" href="http://link-to-your-xml-file/info.xml" />'); ?></pre>
+<pre class="source"><?php echo htmlentities ('<link rel="browser-game-info" href="http://link-to-your-xml-file/info.xml"/>'); ?></pre>
 
 <h3>Step 3: Validate and add your game</h3>
 <?php include ('validator/form.phpt'); ?>
