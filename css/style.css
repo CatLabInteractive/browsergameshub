@@ -141,6 +141,7 @@ table
 {
 	width: 48%;
 	float: left;
+	clear: both;
 }
 
 #servers
