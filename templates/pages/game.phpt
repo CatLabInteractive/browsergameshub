@@ -16,42 +16,42 @@
 	<table>
 		<tr>
 			<td class="left">Genre</td>
-			<td class="center"><?=$game->getData ('genre', 'n/a')?></td>
+			<td class="center"><?=$game->getData ('genre', '<span style="color: #cccccc;">n/a</span>')?></td>
 		</tr>
 		
 		<tr>
 			<td class="left">Setting</td>
-			<td class="center"><?=$game->getData ('setting', 'n/a')?></td>
+			<td class="center"><?=$game->getData ('setting', '<span style="color: #cccccc;">n/a</span>')?></td>
 		</tr>
 		
 		<tr>
 			<td class="left">Effort</td>
-			<td class="center"><?=$game->getData ('effort', 'n/a')?></td>
+			<td class="center"><?=$game->getData ('effort', '<span style="color: #cccccc;">n/a</span>')?></td>
 		</tr>
 		
 		<tr>
 			<td class="left">Players</td>
-			<td class="center"><?=$game->getData ('players', 'n/a')?></td>
+			<td class="center"><?=$game->getData ('players', '<span style="color: #cccccc;">n/a</span>')?></td>
 		</tr>
 		
 		<tr>
 			<td class="left">Age Recommendation</td>
-			<td class="center"><?=$game->getData ('age_recom', 'n/a')?></td>
+			<td class="center"><?=$game->getData ('age_recom', '<span style="color: #cccccc;">n/a</span>')?></td>
 		</tr>
 		
 		<tr>
 			<td class="left">Status</td>
-			<td class="center"><?=$game->getData ('status', 'n/a')?></td>
+			<td class="center"><?=$game->getData ('status', '<span style="color: #cccccc;">n/a</span>')?></td>
 		</tr>
 		
 		<tr>
 			<td class="left">Payment</td>
-			<td class="center"><?=$game->getData ('payment', 'n/a')?></td>
+			<td class="center"><?=$game->getData ('payment', '<span style="color: #cccccc;">n/a</span>')?></td>
 		</tr>
 		
 		<tr>
 			<td class="left">Timing</td>
-			<td class="center"><?=$game->getData ('timing', 'n/a')?></td>
+			<td class="center"><?=$game->getData ('timing', '<span style="color: #cccccc;">n/a</span>')?></td>
 		</tr>
 	</table>
 </div>
