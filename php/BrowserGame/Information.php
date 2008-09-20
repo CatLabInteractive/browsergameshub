@@ -42,7 +42,7 @@ class BrowserGame_Information
 		
 		if ($dom)
 		{
-			return $this->xml;
+			//return $this->xml;
 			return $dom->saveXML ();
 		}
 		return false;
@@ -285,7 +285,7 @@ class BrowserGame_Information
 		);
 		
 		// Update the XML
-		$cache->setCache ($data['b_id'], $this->getXMLDump ());
+		$cache->setCache ($id, $this->getXMLDump ());
 	}
 	
 	private function addError ($error)
