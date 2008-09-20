@@ -259,6 +259,34 @@ class BrowserGame_Information
 		return $out;
 	}
 	
+	public function updateCache ($id)
+	{
+		$db = Core_Database::__getInstance ();
+	
+		$cache = Core_Cache::__getInstance ('information/', 'xml');
+	
+		// Update the database
+		$db->update
+		(
+			'b_browsergames',
+			array
+			(
+				'b_lastCheck' => date ('Y-m-d H:i:s'),
+				'b_failures' => 0,
+				'b_isValid' => 1,
+				'b_name' => $this->getData ('name'),
+				'b_genre' => $this->getData ('genre'),
+				'b_setting' => $this->getData ('setting'),
+				'b_status' => $this->getData ('status'),
+				'b_timing' => $this->getData ('timing')
+			),
+			"b_id = ".$id
+		);
+		
+		// Update the XML
+		$cache->setCache ($data['b_id'], $this->getXMLDump ());
+	}
+	
 	private function addError ($error)
 	{
 		$this->sError[] = $error;

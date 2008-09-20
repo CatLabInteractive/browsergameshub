@@ -49,7 +49,7 @@ class Pages_Validator extends Pages_Page
 				
 				if (count ($chk) == 0)
 				{
-					$db->insert
+					$id = $db->insert
 					(
 						'b_browsergames',
 						array
@@ -59,6 +59,13 @@ class Pages_Validator extends Pages_Page
 						)
 					);
 				}
+				
+				else
+				{
+					$id = $chk[0]['b_id'];
+				}
+				
+				$server->updateCache ($id);
 			}
 			else
 			{
