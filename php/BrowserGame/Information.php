@@ -42,6 +42,7 @@ class BrowserGame_Information
 		
 		if ($dom)
 		{
+			return $this->xml;
 			return $dom->saveXML ();
 		}
 		return false;
