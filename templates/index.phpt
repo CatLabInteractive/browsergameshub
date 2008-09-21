@@ -16,6 +16,8 @@
 		<script src="<?=BASE_URL?>js/scriptaculous.js?load=effects,builder" type="text/javascript"></script>
 		<script src="<?=BASE_URL?>js/lightbox.js" type="text/javascript"></script>
 		
+		<meta name="verify-v1" content="To8H6ax30bEBO6IfgQn/lByRc8Ua2KiWowemwsRA83A=" />
+		
 		<script type="text/javascript">
 		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
