@@ -52,6 +52,12 @@ button
 	display: block;
 }
 
+input, button
+{
+	border: 1px solid gray;
+	background: white;
+}
+
 fieldset
 {
 	padding: 5px;
@@ -123,7 +129,29 @@ img.logo
 	border: 1px solid gray;
 }
 
-#__idselector_button
+#idselector_button
 {
-	display: inline;
+	height: 20px;
+}
+
+#idselector_button button,
+#idselector_button input
+{
+	float: left;
+	clear: none;
+	margin-right: 5px;
+}
+
+#idselector_button input
+{
+	font-family: Verdana;
+	font-size: 11px;
+	padding: 2px;
+	width: 200px;
+	height: 14px;
+}
+
+#login_button
+{
+	padding: 5px;
 }

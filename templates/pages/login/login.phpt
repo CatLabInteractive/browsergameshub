@@ -7,9 +7,12 @@
 		<legend>OpenID Login</legend>
 		
 		<label>Your OpenID Account:</label>
-		<input type="text" name="openid_url" id="openidselector" />
 		
-		<button type="submit">Login</button>
+		<div id="idselector_button">
+			<input type="text" name="openid_url" id="openidselector" />
+		</div>
+		
+		<button type="submit" style="clear: both; margin-top: 5px;" id="login_button">Login</button>
 	</fieldset>
 </form>
 
