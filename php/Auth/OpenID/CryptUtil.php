@@ -15,6 +15,8 @@
  * @license http://www.apache.org/licenses/LICENSE-2.0 Apache
  */
 
+define ('Auth_OpenID_RAND_SOURCE', null);
+
 if (!defined('Auth_OpenID_RAND_SOURCE')) {
     /**
      * The filename for a source of random bytes. Define this yourself
