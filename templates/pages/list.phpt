@@ -2,6 +2,8 @@
 <table>
 
 	<tr>
+		<th style="width: 20px;">&nbsp;</th>
+	
 		<th class="left">Game</th>
 		<th class="center">Genre</th>
 		<th class="center">Setting</th>
@@ -11,6 +13,12 @@
 
 	<?php foreach ($games as $game) { ?>
 		<tr>
+			<td class="center" style="padding: 0px 0px 0px 0px;">
+				<?php if ($game['openid']) { ?>
+					<img src="<?=ABSOLUTE_URL?>images/lightning.png" title="Direct Play Compatible" />
+				<?php } else { ?>&nbsp;<?php } ?>
+			</td>
+		
 			<td class="left"><a href="<?=$game['url']?>"><?=$game['name']?></a></td>
 			<td class="center"><?=$game['genre']?></td>
 			<td class="center"><?=$game['setting']?></td>

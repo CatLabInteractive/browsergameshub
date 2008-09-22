@@ -68,8 +68,8 @@ h1,h2,h3 {padding-top: 6px; color: #553; margin-bottom: 4px;}
 
 /* misc */
 .clearer {clear: both; font-size: 0;}
-.left {float: left;}
-.right {float: right;}
+/*.left {float: left;}*/
+/*.right {float: right;}*/
 
 /* structure */
 .inner-container {

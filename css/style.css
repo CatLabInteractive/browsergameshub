@@ -122,3 +122,8 @@ img.logo
 	padding: 2px;
 	border: 1px solid gray;
 }
+
+#__idselector_button
+{
+	display: inline;
+}

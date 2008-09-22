@@ -27,7 +27,8 @@ class Pages_List extends Pages_Page
 				'genre' => $v['b_genre'],
 				'setting' => $v['b_setting'],
 				'status' => $v['b_status'],
-				'timing' => $v['b_timing']
+				'timing' => $v['b_timing'],
+				'openid' => $v['b_openid'] == 1
 			);
 		}
 		

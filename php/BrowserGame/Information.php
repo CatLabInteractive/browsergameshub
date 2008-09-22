@@ -279,13 +279,28 @@ class BrowserGame_Information
 				'b_genre' => $this->getData ('genre'),
 				'b_setting' => $this->getData ('setting'),
 				'b_status' => $this->getData ('status'),
-				'b_timing' => $this->getData ('timing')
+				'b_timing' => $this->getData ('timing'),
+				'b_openid' => $this->hasOpenId () ? '1' : '0'
 			),
 			"b_id = ".$id
 		);
 		
 		// Update the XML
 		$cache->setCache ($id, $this->getXMLDump ());
+	}
+	
+	private function hasOpenId ()
+	{
+		$servers = $this->getServers ();
+		
+		foreach ($servers as $v)
+		{
+			if (!empty ($v['openid_url']))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	private function addError ($error)

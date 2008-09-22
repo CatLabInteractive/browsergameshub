@@ -60,17 +60,23 @@
 	<h3>Game Servers</h3>
 	<table>
 		<tr>
+			<th style="width: 16px;">&nbsp;</th>
 			<th class="left">Server</th>
 			<th class="center">Players</th>
 			<th class="center">Status</th>
 			<th class="center">Version</th>
 		</tr>
-		
-		<?php $servers = $game->getServers (); ?>
 	
 		<?php if (count ($servers) > 0) { ?>
 			<?php foreach ($servers as $v) { ?>
 				<tr>
+					<td class="center" style="padding: 0px 0px 0px 0px;">
+						<?php if (isset ($v['directplay_url'])) { ?>
+							<a href="<?=$v['directplay_url']?>">
+								<img src="<?=ABSOLUTE_URL?>images/lightning.png" title="Direct Play <?=addslashes($v['name'])?>" style="border: none;" />
+							</a>
+						<?php } ?>
+					</td>
 					<td class="left"><a href="<?=$v['game_url']?>"><?=$v['name']?></a></td>
 					<td class="center"><?=$v['players']?></td>
 					<td class="center"><?=$v['status']?></td>
