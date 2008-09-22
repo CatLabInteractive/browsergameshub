@@ -95,7 +95,7 @@
         <xs:element minOccurs="0" maxOccurs="1" name="servers">
           <xs:complexType>
             <xs:sequence>
-              <xs:element minOccurs="1" maxOccurs="unbounded" name="server">
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="server">
                 <xs:complexType>
                   <xs:all>
                     <xs:element minOccurs="0" maxOccurs="1" name="id" type="xs:int" />
