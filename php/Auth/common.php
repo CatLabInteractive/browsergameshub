@@ -141,5 +141,5 @@ function escape($thing) {
     return htmlentities($thing);
 }
 
-define ('Auth_OpenID_RAND_SOURCE', true);
+define ('Auth_OpenID_RAND_SOURCE', null);
 ?>
