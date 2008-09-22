@@ -140,4 +140,6 @@ function getOpenIDURL()
 function escape($thing) {
     return htmlentities($thing);
 }
+
+define ('Auth_OpenID_RAND_SOURCE', true);
 ?>
