@@ -9,22 +9,22 @@
 			<a href="<?=ABSOLUTE_URL?>list/?sort=name&order=asc" class="sort_az"><span>A-Z</span></a>
 			<span>Game</span>
 		</th>
-		<th class="center">
+		<th class="center" style="width: 17%;">
 			<a href="<?=ABSOLUTE_URL?>list/?sort=genre&order=desc" class="sort_za"><span>Z-A</span></a>
 			<a href="<?=ABSOLUTE_URL?>list/?sort=genre&order=asc" class="sort_az"><span>A-Z</span></a>
 			<span>Genre</span>
 		</th>
-		<th class="center">
+		<th class="center" style="width: 17%;">
 			<a href="<?=ABSOLUTE_URL?>list/?sort=setting&order=desc" class="sort_za"><span>Z-A</span></a>
 			<a href="<?=ABSOLUTE_URL?>list/?sort=setting&order=asc" class="sort_az"><span>A-Z</span></a>
 			<span>Setting</span>
 		</th>
-		<th class="center">
+		<th class="center" style="width: 17%;">
 			<a href="<?=ABSOLUTE_URL?>list/?sort=status&order=desc" class="sort_za"><span>Z-A</span></a>
 			<a href="<?=ABSOLUTE_URL?>list/?sort=status&order=asc" class="sort_az"><span>A-Z</span></a>
 			<span>Status</span>
 		</th>
-		<th class="center">
+		<th class="center" style="width: 17%;">
 			<a href="<?=ABSOLUTE_URL?>list/?sort=timing&order=desc" class="sort_za"><span>Z-A</span></a>
 			<a href="<?=ABSOLUTE_URL?>list/?sort=timing&order=asc" class="sort_az"><span>A-Z</span></a>
 			<span>Timing</span>
