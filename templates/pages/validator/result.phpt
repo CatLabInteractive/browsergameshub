@@ -19,18 +19,18 @@
 	
 	<p>Simply copy &amp; paste this HTML to your website.</p>
 	
-	<pre class="source"><?=htmlentities('<a href="'.ABSOLUTE_URL.'game/'.$id.'/'.$name.'/">
+	<pre class="source"><?=htmlentities('<a href="'.ABSOLUTE_URL.'game/'.$id.'/'.urlencode ($name).'/">
 	<img src="'.ABSOLUTE_URL.'images/browsergameshub.png" 
 		alt="Browser Games Hub logo" 
-		title="'.$name.' supports the Browser Games Hub API" />
+		title="'.htmlentities ($name, ENT_COMPAT).' supports the Browser Games Hub API" />
 </a>');?></pre>
 
 <!-- Example -->
 <div style="margin-top: 10px; text-align: center;">
-	<?='<a href="'.ABSOLUTE_URL.'game/'.$id.'/'.$name.'/">
+	<?='<a href="'.ABSOLUTE_URL.'game/'.$id.'/'.urlencode($name).'/">
 	<img src="'.ABSOLUTE_URL.'images/browsergameshub.png" 
 		alt="Browser Games Hub logo" 
-		title="'.$name.' supports the Browser Games Hub API" />
+		title="'.htmlentities ($name, ENT_COMPAT).' supports the Browser Games Hub API" />
 </a>'?>
 </div>
 
