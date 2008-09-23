@@ -35,6 +35,7 @@ class Pages_List extends Pages_Page
 
 			case 'name':		
 			default:
+				$sort = 'name';
 				$sqlorder = 'b_name '.$order;
 			break;
 		}
@@ -63,6 +64,7 @@ class Pages_List extends Pages_Page
 			);
 		}
 		
+		$page->set ('order', $sort.'_'.$order);
 		$page->set ('games', $games);
 		
 		return $page->parse ('pages/list.phpt');

@@ -173,6 +173,16 @@ img.logo
 	background-image:url('../images/bullet_arrow_up.png');
 }
 
+.sort_az.active
+{
+	background-image:url('../images/bullet_arrow_down_red.png');
+}
+
+.sort_za.active
+{
+	background-image:url('../images/bullet_arrow_up_red.png');
+}
+
 table#gamelist th span
 {
 	display: block;
