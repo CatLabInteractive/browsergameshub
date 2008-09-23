@@ -65,6 +65,9 @@ class Pages_Validator extends Pages_Page
 					$id = $chk[0]['b_id'];
 				}
 				
+				$page->set ('name', urlencode ($server->getData ('name')));
+				$page->set ('id', $id);
+				
 				$server->updateCache ($id);
 			}
 			else
