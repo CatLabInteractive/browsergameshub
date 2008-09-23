@@ -1,14 +1,34 @@
 <h2>Browser Games</h2>
-<table>
+<table id="gamelist">
 
 	<tr>
 		<th style="width: 20px;">&nbsp;</th>
 	
-		<th class="left">Game</th>
-		<th class="center">Genre</th>
-		<th class="center">Setting</th>
-		<th class="center">Status</th>
-		<th class="center">Timing</th>
+		<th class="left">
+			<a href="<?=ABSOLUTE_URL?>list/?sort=name&order=desc" class="sort_za"><span>Z-A</span></a>
+			<a href="<?=ABSOLUTE_URL?>list/?sort=name&order=asc" class="sort_az"><span>A-Z</span></a>
+			<span>Game</span>
+		</th>
+		<th class="center">
+			<a href="<?=ABSOLUTE_URL?>list/?sort=genre&order=desc" class="sort_za"><span>Z-A</span></a>
+			<a href="<?=ABSOLUTE_URL?>list/?sort=genre&order=asc" class="sort_az"><span>A-Z</span></a>
+			<span>Genre</span>
+		</th>
+		<th class="center">
+			<a href="<?=ABSOLUTE_URL?>list/?sort=setting&order=desc" class="sort_za"><span>Z-A</span></a>
+			<a href="<?=ABSOLUTE_URL?>list/?sort=setting&order=asc" class="sort_az"><span>A-Z</span></a>
+			<span>Setting</span>
+		</th>
+		<th class="center">
+			<a href="<?=ABSOLUTE_URL?>list/?sort=status&order=desc" class="sort_za"><span>Z-A</span></a>
+			<a href="<?=ABSOLUTE_URL?>list/?sort=status&order=asc" class="sort_az"><span>A-Z</span></a>
+			<span>Status</span>
+		</th>
+		<th class="center">
+			<a href="<?=ABSOLUTE_URL?>list/?sort=timing&order=desc" class="sort_za"><span>Z-A</span></a>
+			<a href="<?=ABSOLUTE_URL?>list/?sort=timing&order=asc" class="sort_az"><span>A-Z</span></a>
+			<span>Timing</span>
+		</th>
 	</tr>
 
 	<?php foreach ($games as $game) { ?>

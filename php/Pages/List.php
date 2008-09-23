@@ -8,12 +8,43 @@ class Pages_List extends Pages_Page
 		// Fetch all active games
 		$db = Core_Database::__getInstance ();
 		
+		// Order
+		$sort = Core_Tools::getInput ('_GET', 'sort', 'varchar');
+		$order = Core_Tools::getInput ('_GET', 'order', 'varchar');
+		
+		switch ($order)
+		{
+			case 'desc':
+				$order = 'desc';
+			break;
+		
+			case 'asc':
+			default:
+				$order = 'asc';
+			break;
+		}
+		
+		switch ($sort)
+		{
+			case 'setting':
+			case 'status':
+			case 'timing':
+			case 'genre':
+				$sqlorder = 'b_'.$sort.' '.$order;
+			break;
+
+			case 'name':		
+			default:
+				$sqlorder = 'b_name '.$order;
+			break;
+		}
+		
 		$data = $db->select
 		(
 			'b_browsergames',
 			array ('*'),
 			"b_isValid = 1",
-			'b_name ASC'
+			$sqlorder
 		);
 
 		$games = array ();		

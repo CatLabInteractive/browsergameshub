@@ -156,3 +156,35 @@ img.logo
 {
 	padding: 2px 5px;
 }
+
+.sort_az,
+.sort_za
+{
+	background-image:url('../images/bullet_arrow_down.png');
+	background-position: 50% 50%;
+	width: 8px;
+	height: 14px;
+	float: right;
+}
+
+.sort_za
+{
+	background-image:url('../images/bullet_arrow_up.png');
+}
+
+table#gamelist th span
+{
+	display: block;
+}
+
+table#gamelist th.center span
+{
+	display: block;
+	padding-left: 16px;
+}
+
+table#gamelist th .sort_az span,
+table#gamelist th .sort_za span
+{
+	display: none;
+}
