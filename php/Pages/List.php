@@ -56,10 +56,10 @@ class Pages_List extends Pages_Page
 				'url' => ABSOLUTE_URL.'game/'.$v['b_id'].'/'.urlencode ($v['b_name']),
 				//'url' => 'javascript:alert(\'Online soon\');',
 				'name' => $v['b_name'],
-				'genre' => $v['b_genre'],
-				'setting' => $v['b_setting'],
-				'status' => $v['b_status'],
-				'timing' => $v['b_timing'],
+				'genre' => strtolower ($v['b_genre']),
+				'setting' => strtolower ($v['b_setting']),
+				'status' => strtolower ($v['b_status']),
+				'timing' => strtolower ($v['b_timing']),
 				'openid' => $v['b_openid'] == 1
 			);
 		}
