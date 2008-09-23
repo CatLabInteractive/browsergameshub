@@ -161,10 +161,11 @@ img.logo
 .sort_za
 {
 	background-image:url('../images/bullet_arrow_down.png');
-	background-position: 50% 50%;
-	width: 9px;
+	background-position: -4px -1px;
+	width: 7px;
 	height: 14px;
 	float: right;
+	margin-left: 1px;
 }
 
 .sort_za
@@ -180,7 +181,7 @@ table#gamelist th span
 table#gamelist th.center span
 {
 	display: block;
-	padding-left: 16px;
+	padding-left: 15px;
 }
 
 table#gamelist th .sort_az span,
