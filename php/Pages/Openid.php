@@ -46,7 +46,7 @@ class Pages_Openid extends Pages_Page
 		     // Required
 		     array(),
 		     // Optional
-		     array('email')
+		     array()
 		);
 
 		if ($sreg_request) {
