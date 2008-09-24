@@ -148,9 +148,10 @@ img.logo
 {
 	font-family: Verdana;
 	font-size: 11px;
-	padding: 2px;
+	padding: 4px;
 	width: 200px;
 	height: 14px;
+	margin-top: 2px;
 }
 
 #login_button

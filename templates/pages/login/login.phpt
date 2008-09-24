@@ -12,7 +12,7 @@
 			<input type="text" name="openid_url" id="openidselector" />
 		</div>
 		
-		<button type="submit" style="clear: both; margin-top: 5px;" id="login_button">Login</button>
+		<button type="submit" style="clear: both; margin-top: 10px;" id="login_button">Login</button>
 	</fieldset>
 </form>
 
