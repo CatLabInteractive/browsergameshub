@@ -1,3 +1,4 @@
+<h2>API Validation</h2>
 <p class="comment"><?=$contacting?></p>
 
 <?php if (isset ($portalcheck)) { ?>
