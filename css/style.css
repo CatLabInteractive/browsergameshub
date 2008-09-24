@@ -57,6 +57,7 @@ input, button
 	border: 1px solid gray;
 	background: white;
 	margin-top: 2px;
+	padding: 2px 5px;
 }
 
 fieldset
