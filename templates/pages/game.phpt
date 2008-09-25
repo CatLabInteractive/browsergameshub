@@ -1,7 +1,7 @@
-<ul>
+<ul id="languages">
 	<?php foreach ($languages as $v) { ?>
-		<li>
-			<a href="<?=$game_url?>&lang=<?=$v?>"><?=$v?></a>
+		<li <?= $v == $language ? 'class="active"' : null ?>>
+			<a href="<?=$game_url?>?lang=<?=$v?>"><?=$v?></a>
 		</li>
 	<?php } ?>
 </ul>

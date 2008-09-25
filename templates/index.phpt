@@ -3,8 +3,8 @@
 	<head>
 		<title>Browser Games Hub</title>
 		
-		<link href="<?=BASE_URL?>css/style.css" rel="stylesheet" type="text/css" />
 		<link href="<?=BASE_URL?>css/dirtylicious.css" rel="stylesheet" type="text/css" />
+		<link href="<?=BASE_URL?>css/style.css" rel="stylesheet" type="text/css" />
 		
 		<link rel="stylesheet" href="<?=BASE_URL?>css/lightbox.css" type="text/css" media="screen" />
 		

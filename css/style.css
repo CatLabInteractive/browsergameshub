@@ -214,3 +214,33 @@ a.filter
 {
 	color: #444;
 }
+
+.content ul#languages
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+.content ul#languages li
+{
+	list-style-image: none;
+	list-style-type: none;
+	margin: 0px 5px 0px 0px;
+	float: right;
+	margin-top: 5px;
+}
+
+.content ul#languages li a
+{
+	color: black;
+	text-decoration: none;
+	border: 1px solid gray;
+	padding: 2px 8px;
+	text-transform: uppercase;
+}
+
+.content ul#languages li.active a
+{
+	border: 2px solid green;
+	font-weight: bold;
+}
