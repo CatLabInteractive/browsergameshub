@@ -10,6 +10,8 @@ class Pages_Game extends Pages_Page
 		// Load game from database
 		$game = new BrowserGame_Information (CACHE_PATH.'information/'.intval($id).'.xml');
 		
+		$page->set ('game_url', ABSOLUTE_URL.'game/'.$id.'/'.urlencode ($game->getData ('name')).'/');
+		
 		$servers = $game->getServers ();
 		
 		foreach ($servers as $k => $v)
@@ -33,6 +35,18 @@ class Pages_Game extends Pages_Page
 		
 		$page->set ('xml_url', BASE_URL.'public/information/'.$id.'.xml');
 		$page->set ('game', $game);
+		
+		$languages = $game->getLanguages ();
+		$language = Core_Tools::getInput ('_GET', 'lang', 'varchar', 'en');
+		
+		$page->set ('languages', $languages);
+		
+		if (!in_array ($language, $languages))
+		{
+			$language = $languages[0];
+		}
+		
+		$page->set ('language', $language);
 		
 		return $page->parse ('pages/game.phpt');
 	}

@@ -303,6 +303,27 @@ class BrowserGame_Information
 		return false;
 	}
 	
+	public function getLanguages ()
+	{
+		$out = array ();
+		
+		// Fetch all languages (everywhere!)
+		$descriptions = $this->getElement ('descriptions');
+		if (!$descriptions)
+		{
+			return array ();
+		}
+		
+		$descriptions = $descriptions->getElementsByTagName ('description');
+		for ($i = 0; $i < $descriptions->length; $i ++)
+		{
+			$item = $descriptions->item ($i);
+			$attribute = $item->getAttributeNode ('lang');
+			$out[] = $attribute->value;
+		}
+		return $out;
+	}
+	
 	private function addError ($error)
 	{
 		$this->sError[] = $error;

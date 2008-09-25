@@ -1,3 +1,11 @@
+<ul>
+	<?php foreach ($languages as $v) { ?>
+		<li>
+			<a href="<?=$game_url?>&lang=<?=$v?>"><?=$v?></a>
+		</li>
+	<?php } ?>
+</ul>
+
 <h2><?=$game->getData ('name')?></h2>
 
 <?php $logo = $game->getData ('logo_url'); ?>
@@ -6,7 +14,7 @@
 	<?php if (!empty ($logo)) { ?>
 		<img class="logo" src="<?=$logo?>" />
 	<?php } ?>
-	<?=$game->getDescription ('en')?>
+	<?=$game->getDescription ($language)?>
 </p>
 
 <p class="playnow"><a href="<?=$game->getData ('site_url')?>"><?=$game->getData ('site_url')?></a></p>
@@ -91,7 +99,7 @@
 	</table>
 </div>
 
-<?php $screenshots = $game->getScreenshots (); ?>
+<?php $screenshots = $game->getScreenshots ($language); ?>
 
 <?php if (count ($screenshots) > 0) { ?>
 	<div id="screenshots">
