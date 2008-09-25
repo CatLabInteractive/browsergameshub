@@ -52,12 +52,14 @@ class Pages_List extends Pages_Page
 		
 		// WHERE stuff
 		$where = 'b_isValid = 1 ';
+		$order_url = ABSOLUTE_URL . 'list/?';
 		
 		foreach ($filter as $k => $v)
 		{
 			if (!empty ($v))
 			{
 				$where .= "AND b_".$k." LIKE '%".$db->escape ($v)."%' ";
+				$order_url .= $k.'='.urlencode($v).'&';
 			}
 		}
 		
@@ -87,6 +89,8 @@ class Pages_List extends Pages_Page
 		
 		$page->set ('order', $sort.'_'.$order);
 		$page->set ('games', $games);
+		
+		$page->set ('order_url', $order_url);
 		
 		return $page->parse ('pages/list.phpt');
 	}

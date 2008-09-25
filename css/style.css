@@ -206,7 +206,11 @@ input.filter
 {
 	width: 80%;
 	background: none;
-	border: none;
-	border-bottom: 1px dashed gray;
 	text-align: center;
+	padding: 2px;
+}
+
+a.filter
+{
+	color: #444;
 }
