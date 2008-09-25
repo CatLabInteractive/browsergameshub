@@ -201,3 +201,12 @@ table#gamelist th .sort_za span
 {
 	display: none;
 }
+
+input.filter
+{
+	width: 80%;
+	background: none;
+	border: none;
+	border-bottom: 1px dashed gray;
+	text-align: center;
+}

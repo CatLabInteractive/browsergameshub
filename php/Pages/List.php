@@ -12,6 +12,16 @@ class Pages_List extends Pages_Page
 		$sort = Core_Tools::getInput ('_GET', 'sort', 'varchar');
 		$order = Core_Tools::getInput ('_GET', 'order', 'varchar');
 		
+		// Fetch the filters
+		$filter = array ();
+		$filter['name'] = Core_Tools::getInput ('_GET', 'name', 'varchar');
+		$filter['genre'] = Core_Tools::getInput ('_GET', 'genre', 'varchar');
+		$filter['setting'] = Core_Tools::getInput ('_GET', 'setting', 'varchar');
+		$filter['status'] = Core_Tools::getInput ('_GET', 'status', 'varchar');
+		$filter['timing'] = Core_Tools::getInput ('_GET', 'timing', 'varchar');
+		
+		$page->set ('filters', $filter);
+		
 		switch ($order)
 		{
 			case 'desc':
@@ -40,11 +50,22 @@ class Pages_List extends Pages_Page
 			break;
 		}
 		
+		// WHERE stuff
+		$where = 'b_isValid = 1 ';
+		
+		foreach ($filter as $k => $v)
+		{
+			if (!empty ($v))
+			{
+				$where .= "AND b_".$k." LIKE '%".$db->escape ($v)."%' ";
+			}
+		}
+		
 		$data = $db->select
 		(
 			'b_browsergames',
 			array ('*'),
-			"b_isValid = 1",
+			$where,
 			$sqlorder
 		);
 
