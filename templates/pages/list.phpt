@@ -64,7 +64,8 @@
 	</table>
 	
 	<p style="text-align: right; margin-top: 0px; ">
-		<button type="submit" style="display: inline;">Apply filters</button>
+		<button type="submit" style="display: inline;" style="margin-right: 2px;">Apply filters</button>
+		<button type="button" style="display: inline;" onclick="window.location = '<?=ABSOLUTE_URL?>list?'; return false;">Clear filters</button>
 	</p>
 	
 </form>
