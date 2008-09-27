@@ -20,6 +20,10 @@
 		
 		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 		
+		<meta name="description" lang="en" content="Browser Games Hub provides an up to date list of Browser Based Games (PBBG 's) which is used on multiple websites." />
+		<meta name="keywords" content="browser based games, browser games, pbbg" />
+		<meta name="author" content="Neuron Interactive" />
+		
 		<script type="text/javascript">
 		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
