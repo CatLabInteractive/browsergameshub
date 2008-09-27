@@ -60,9 +60,14 @@ input, button
 	padding: 2px 5px;
 }
 
+legend
+{
+	display: none;
+}
+
 fieldset
 {
-	padding: 5px;
+	border: none;
 }
 
 table
