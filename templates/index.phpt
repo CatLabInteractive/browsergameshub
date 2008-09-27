@@ -21,7 +21,7 @@
 		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 		
 		<meta name="description" lang="en" content="Browser Games Hub provides an up to date list of Browser Based Games (PBBG 's) which is used on multiple websites." />
-		<meta name="keywords" content="browser based games, browser games, pbbg" />
+		<meta name="keywords" content="browser based games, browser games, pbbg, persistent browser-based games" />
 		<meta name="author" content="Neuron Interactive" />
 		
 		<script type="text/javascript">

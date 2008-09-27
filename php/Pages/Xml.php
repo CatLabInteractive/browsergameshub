@@ -9,6 +9,9 @@ class Pages_Xml extends Pages_Page
 		
 		$db = Core_Database::__getInstance ();
 		
+		// Build the where
+		
+		
 		$rows = $db->select
 		(
 			'b_browsergames',
@@ -25,6 +28,7 @@ class Pages_Xml extends Pages_Page
 				'setting' => $v['b_setting'],
 				'status' => $v['b_status'],
 				'timing' => $v['b_timing'],
+				'openid' => intval ($v['b_openid']) == 1 ? '1' : '0',
 				'info_xml' => BASE_URL.'public/information/'.$v['b_id'].'.xml'
 			);
 		}
