@@ -148,36 +148,40 @@ class BrowserGame_Information
 		}
 		
 		// Check servers
-		$servers = $this->getElement ('servers')->childNodes;
-		for ($servers && $i = 0; $i < $servers->length; $i ++)
+		$servers = $this->getElement ('servers');
+		if ($servers)
 		{
-			$server = $servers->item ($i);
-		
-			// Check the game_url
-			$game_url = $server->getElementsByTagName ('game_url')->item (0)->nodeValue;
-			
-			if (!$this->isSiteOnline ($game_url))
+			$servers = $servers.childNodes
+			for ($i = 0; $i < $servers->length; $i ++)
 			{
-				$this->sWarnings[] = 'Could not connect to game server '.$game_url;
-				$toRemove[] = $server;
+				$server = $servers->item ($i);
+			
+				// Check the game_url
+				$game_url = $server->getElementsByTagName ('game_url')->item (0)->nodeValue;
 				
-				continue;
-			}
-			
-			// Check for OpenID
-			$openid = $server->getElementsByTagName ('openid_url');
-			
-			if ($openid)
-			{
-				$openid = $openid->item(0);
-				
-				$openid_value = str_replace ('%25', '%', $openid->nodeValue);
-			
-				// Check OpenID server
-				if (!$this->checkOpenID ($openid_value))
+				if (!$this->isSiteOnline ($game_url))
 				{
-					$this->sWarnings[] = 'Invalid OpenID url: '.$openid_value;
-					$toRemove[] = $openid;
+					$this->sWarnings[] = 'Could not connect to game server '.$game_url;
+					$toRemove[] = $server;
+					
+					continue;
+				}
+				
+				// Check for OpenID
+				$openid = $server->getElementsByTagName ('openid_url');
+				
+				if ($openid)
+				{
+					$openid = $openid->item(0);
+					
+					$openid_value = str_replace ('%25', '%', $openid->nodeValue);
+				
+					// Check OpenID server
+					if (!$this->checkOpenID ($openid_value))
+					{
+						$this->sWarnings[] = 'Invalid OpenID url: '.$openid_value;
+						$toRemove[] = $openid;
+					}
 				}
 			}
 		}
