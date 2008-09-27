@@ -23,6 +23,7 @@ class Pages_Xml extends Pages_Page
 		{
 			$output['games'][] = array
 			(
+				'id' => $v['b_id'],
 				'name' => $v['b_name'],
 				'genre' => $v['b_genre'],
 				'setting' => $v['b_setting'],
