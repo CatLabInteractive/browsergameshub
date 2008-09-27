@@ -132,31 +132,37 @@ class BrowserGame_Information
 		}
 		
 		// Check screenshots
-		$screens = $this->getElement ('screenshots')->childNodes;
-		for ($i = 0; $i < $screens->length; $i ++)
+		$screens = $this->getElement ('screenshots');
+		if ($screens)
 		{
-			$screen = $screens->item($i);
-			$url = $screen->getElementsByTagName ('url')->item(0)->nodeValue;
-			
-			$size = getimagesize ($url);
-			if (!$size)
+			$screens = $screens->getElementsByTagName ('screenshot');
+		
+			for ($i = 0; $i < $screens->length; $i ++)
 			{
-				$this->sWarnings[] = 'One of your screenshots is not a valid image.';
+				$screen = $screens->item($i);
+				$url = $screen->getElementsByTagName ('url')->item(0)->nodeValue;
 				
-				$toRemove[] = $screen;
+				$size = getimagesize ($url);
+				if (!$size)
+				{
+					$this->sWarnings[] = 'One of your screenshots is not a valid image.';
+					
+					$toRemove[] = $screen;
+				}
 			}
 		}
 		
 		// Check servers
 		$servers = $this->getElement ('servers');
+		
 		if ($servers)
 		{
-			$servers = $servers->childNodes;
+			$servers = $servers->getElementsByTagName ('server');
+			
 			for ($i = 0; $i < $servers->length; $i ++)
 			{
 				$server = $servers->item ($i);
-			
-				// Check the game_url
+				
 				$game_url = $server->getElementsByTagName ('game_url')->item (0)->nodeValue;
 				
 				if (!$this->isSiteOnline ($game_url))
