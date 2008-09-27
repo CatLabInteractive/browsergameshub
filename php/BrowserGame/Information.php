@@ -145,7 +145,7 @@ class BrowserGame_Information
 				$size = @getimagesize ($url);
 				if (!$size)
 				{
-					$this->sWarnings[] = 'One of your screenshots is not a valid image.';
+					$this->sWarnings[] = 'One of your screenshots is not a valid image: <br />'.$url;
 					
 					$toRemove[] = $screen;
 				}
