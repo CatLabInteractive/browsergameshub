@@ -4,6 +4,7 @@
 	<li><a href="<?=BASE_URL?>howto">Add Game</a></li>
 	<!--<li><a href="wiki">Wiki</a></li>-->
 	<li><a href="<?=BASE_URL?>list">Games List</a></li>
+	<li><a href="<?=BASE_URL?>links">Links</a></li>
 </ul>
 
 <h2 style="margin-top: 10px;">Community</h2>

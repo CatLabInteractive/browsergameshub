@@ -20,7 +20,7 @@ if
 	define ('DB_SERVER', 'localhost');
 	define ('DB_DATABASE', 'browsergames');
 	
-	define ('BASE_URL', 'http://'.$_SERVER['SERVER_NAME'].'/browsergamehub/');
+	define ('BASE_URL', 'http://'.$_SERVER['SERVER_NAME'].'/browsergameshub/');
 }
 else
 {

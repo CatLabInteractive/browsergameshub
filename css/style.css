@@ -244,3 +244,8 @@ a.filter
 	border: 2px solid green;
 	font-weight: bold;
 }
+
+.content li
+{
+	margin-bottom: 10px;
+}

@@ -5,6 +5,23 @@ class Pages_Game extends Pages_Page
 	{
 		$id = $this->getRequestInput (1);
 		
+		$db = Core_Database::__getInstance ();
+		
+		// Fetch game from database
+		$l = $db->select
+		(
+			'b_browsergames',
+			array ('*'),
+			"b_id = ".intval ($id)
+		);
+		
+		if (count ($l) != 1)
+		{
+			return '<p>Invalid input: game not found.</p>';
+		}
+		
+		$gameData = $l[0];
+		
 		$page = new Core_Template ();
 		
 		// Load game from database
@@ -47,6 +64,8 @@ class Pages_Game extends Pages_Page
 		}
 		
 		$page->set ('language', $language);
+		
+		$page->set ('lastCheck', date ('d M Y, H:i', strtotime ($gameData['b_lastCheck'])));
 		
 		return $page->parse ('pages/game.phpt');
 	}
