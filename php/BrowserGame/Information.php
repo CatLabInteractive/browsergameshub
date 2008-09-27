@@ -213,6 +213,7 @@ class BrowserGame_Information
 		// Remove all nodes
 		foreach ($toRemove as $v)
 		{
+			echo $v->tagName;
 			$v->parentNode->removeChild ($v);
 		}
 	}
