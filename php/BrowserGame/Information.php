@@ -162,7 +162,8 @@ class BrowserGame_Information
 			for ($i = 0; $i < $servers->length; $i ++)
 			{
 				$server = $servers->item ($i);
-				
+								
+				/*
 				$game_url = $server->getElementsByTagName ('game_url')->item (0)->nodeValue;
 				
 				if (!$this->isSiteOnline ($game_url))
@@ -189,6 +190,7 @@ class BrowserGame_Information
 						$toRemove[] = $openid;
 					}
 				}
+				*/
 			}
 		}
 		
@@ -210,9 +212,7 @@ class BrowserGame_Information
 			}
 		}
 		
-		// Remove all nodes
-		var_dump ($toRemove);
-		
+		// Remove all nodes		
 		foreach ($toRemove as $v)
 		{
 			$v->parentNode->removeChild ($v);
