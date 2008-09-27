@@ -31,7 +31,7 @@ foreach ($l as $data)
 			echo $data['b_url'] . " is not valid.\n";
 		
 			// Remove if keeps failing
-			if ($data['b_failures'] > 500)
+			if ($data['b_failures'] > 14)
 			{
 				echo $data['b_url'] . " has been removed due to too many failures.\n";
 			
