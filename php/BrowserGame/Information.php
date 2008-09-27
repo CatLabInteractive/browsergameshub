@@ -330,6 +330,26 @@ class BrowserGame_Information
 		return false;
 	}
 	
+	private function getAttribute ($data)
+	{
+		$dom = $this->getDom ();
+		if ($dom)
+		{
+			$content = $dom->getElementsByTagName('browsergameshub');
+			if ($content && $content->length > 0)
+			{
+				$content = $content->item (0);
+			}
+			else
+			{
+				return false;
+			}
+			
+			return $content->getAttribute ($data);
+		}
+		return false;
+	}
+	
 	public function getDescription ($lang = 'en')
 	{
 		$descriptions = $this->getElement ('descriptions');
@@ -438,7 +458,8 @@ class BrowserGame_Information
 				'b_setting' => $this->getData ('setting'),
 				'b_status' => $this->getData ('status'),
 				'b_timing' => $this->getData ('timing'),
-				'b_openid' => $this->hasOpenId () ? '1' : '0'
+				'b_openid' => $this->hasOpenId () ? '1' : '0',
+				'b_revisit' => min (7, max (1, intval ($this->getAttribute ('revisit'))))
 			),
 			"b_id = ".$id
 		);
