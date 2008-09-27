@@ -151,7 +151,7 @@ class BrowserGame_Information
 		$servers = $this->getElement ('servers');
 		if ($servers)
 		{
-			$servers = $servers.childNodes
+			$servers = $servers.childNodes;
 			for ($i = 0; $i < $servers->length; $i ++)
 			{
 				$server = $servers->item ($i);
