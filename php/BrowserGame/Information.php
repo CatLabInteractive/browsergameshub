@@ -149,7 +149,7 @@ class BrowserGame_Information
 		
 		// Check servers
 		$servers = $this->getElement ('servers')->childNodes;
-		for ($i = 0; $i < $servers->length; $i ++)
+		for ($servers && $i = 0; $i < $servers->length; $i ++)
 		{
 			$server = $servers->item ($i);
 		
