@@ -69,6 +69,9 @@ class Pages_Validator extends Pages_Page
 				$page->set ('id', $id);
 				
 				$server->updateCache ($id);
+				
+				// Fetch warnings
+				$page->set ('warnings', $server->getWarnings ());
 			}
 			else
 			{

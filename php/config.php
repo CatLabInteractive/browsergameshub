@@ -37,6 +37,7 @@ define ('TIME_ZONE', 'Europe/Brussels');
 define ('DEFAULT_TEMPLATE_DIR', 'templates/');
 define ('CACHE_PATH', BASE_PATH.'public/');
 define ('SCHEMA_PATH', BASE_PATH.'schema/');
+define ('SCHEMA_URL', BASE_URL.'scema/');
 
 define ('CACHE_DIR', CACHE_PATH);
 

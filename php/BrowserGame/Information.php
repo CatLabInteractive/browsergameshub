@@ -4,6 +4,8 @@ class BrowserGame_Information
 	private $sUrl;
 	private $sError = array ();
 	
+	private $sWarnings = array ();
+	
 	private $xml = null;
 	private $dom = null;
 
@@ -100,7 +102,153 @@ class BrowserGame_Information
 			return false;
 		}
 		
+		// Check external media
+		$this->checkExternals ();
+		
 		return true;
+	}
+	
+	/*
+		Checks all external URI and removed invalid elements.
+		This function creates warnings, not errors.
+	*/
+	private function checkExternals ()
+	{
+		$dom = $this->getDom ();
+		
+		$toRemove = array ();
+	
+		// First: check logo
+		$logo = $this->getElement ('logo_url');
+		if ($logo)
+		{
+			// Fetch the image size
+			$size = getimagesize ($logo->nodeValue);
+			if (!$size || $size[0] > 100 || $size[1] > 100)
+			{
+				$toRemove[] = $logo;
+				$this->sWarnings[] = 'Your logo is not valid. Make sure it\'s accessable and it\'s maximum 100x100 px.';
+			}
+		}
+		
+		// Check screenshots
+		$screens = $this->getElement ('screenshots')->childNodes;
+		for ($i = 0; $i < $screens->length; $i ++)
+		{
+			$screen = $screens->item($i);
+			$url = $screen->getElementsByTagName ('url')->item(0)->nodeValue;
+			
+			$size = getimagesize ($url);
+			if (!$size)
+			{
+				$this->sWarnings[] = 'One of your screenshots is not a valid image.';
+				
+				$toRemove[] = $screen;
+			}
+		}
+		
+		// Check servers
+		$servers = $this->getElement ('servers')->childNodes;
+		for ($i = 0; $i < $servers->length; $i ++)
+		{
+			$server = $servers->item ($i);
+		
+			// Check the game_url
+			$game_url = $server->getElementsByTagName ('game_url')->item (0)->nodeValue;
+			
+			if (!$this->isSiteOnline ($game_url))
+			{
+				$this->sWarnings[] = 'Could not connect to game server '.$game_url;
+				$toRemove[] = $server;
+				
+				continue;
+			}
+			
+			// Check for OpenID
+			$openid = $server->getElementsByTagName ('openid_url');
+			
+			if ($openid)
+			{
+				$openid = $openid->item(0);
+				
+				$openid_value = str_replace ('%25', '%', $openid->nodeValue);
+			
+				// Check OpenID server
+				if (!$this->checkOpenID ($openid_value))
+				{
+					$this->sWarnings[] = 'Invalid OpenID url: '.$openid_value;
+					$toRemove[] = $openid;
+				}
+			}
+		}
+		
+		// Check RSS
+		$rss_url = $this->getElement ('rss_url');
+		if ($rss_url)
+		{
+			$rsschk = new DOMDocument ();
+			$rss = @$rsschk->load ($rss_url->nodeValue);
+			if (!$rss)
+			{
+				$this->sWarnings[] = 'Could not reach your RSS file.';
+				$toRemove[] = $rss_url;
+			}
+			elseif (!$rsschk->schemaValidate (SCHEMA_PATH.'rss-2.0.xsd'))
+			{
+				$this->sWarnings[] = 'Your RSS file is not valid. <a href="'.SCHEMA_URL.'rss-2.0.xsd">Check schema</a>';
+				$toRemove[] = $rss_url;
+			}
+		}
+		
+		// Remove all nodes
+		foreach ($toRemove as $v)
+		{
+			$v->parentNode->removeChild ($v);
+		}
+	}
+	
+	/*
+		A special thanks to:
+		http://www.jellyandcustard.com/2006/05/31/determining-if-a-url-exists-with-curl/
+	*/
+	private function isSiteOnline ($sUrl)
+	{
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, "http://www.jellyandcustard.com/");
+		curl_setopt($ch, CURLOPT_HEADER, true);
+		curl_setopt($ch, CURLOPT_NOBODY, true);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+		curl_setopt($ch, CURLOPT_MAXREDIRS, 10); //follow up to 10 redirections - avoids loops
+		$data = curl_exec($ch);
+		curl_close($ch);
+		preg_match_all("/HTTP\/1\.[1|0]\s(\d{3})/",$data,$matches);
+		$code = end($matches[1]);
+
+		if(!$data) 
+		{
+			return false;
+		} 
+		else 
+		{
+			if($code==200) 
+			{
+				return true;
+			} 
+			elseif($code==404) 
+			{
+				return false;
+			}
+		}
+	}
+	
+	private function checkOpenID ($server)
+	{
+		// First: check string
+		if (strpos ($server, '%s') === false)
+			return false;
+		
+		return $this->isSiteOnline ($server);
 	}
 	
 	public function isPortalValid ()
@@ -332,6 +480,11 @@ class BrowserGame_Information
 	public function getError ()
 	{
 		return $this->sError;
+	}
+	
+	public function getWarnings ()
+	{
+		return $this->sWarnings;
 	}
 }
 ?>

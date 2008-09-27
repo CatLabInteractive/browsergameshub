@@ -14,6 +14,13 @@
 
 	<p class="true"><?=$success?></p>
 	
+	<?php if (count ($warnings) > 0) { ?>
+		<h3>Warnings</h3>
+		<?php foreach ($warnings as $v) { ?>
+			<p class="warning"><?=$v?></p>
+		<?php } ?>
+	<?php } ?>
+	
 	<h2>Spread the word</h2>
 	
 	<p>Good! Your game now supports the Browser Games Hub API. Encourage developers to use your API by putting the certification logo on your site.</p>
