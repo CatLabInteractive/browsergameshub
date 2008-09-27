@@ -16,42 +16,45 @@ $l = $db->select
 
 foreach ($l as $data)
 {
-	$game = new BrowserGame_Information ($data['b_url']);
-	
-	if ($game->isValidated () && $game->isPortalValid ())
+	if (strtotime ($data['b_lastCheck']) < (time () - ($data['b_revisit'] * 60*60*24)))
 	{
-		echo $data['b_url'] . " is valid. XML Has been updated.\n";
+		$game = new BrowserGame_Information ($data['b_url']);
 		
-		$game->updateCache ($data['b_id']);
-	}
-	else
-	{
-		echo $data['b_url'] . " is not valid.\n";
-	
-		// Remove if keeps failing
-		if ($data['b_failures'] > 500)
+		if ($game->isValidated () && $game->isPortalValid ())
 		{
-			echo $data['b_url'] . " has been removed due to too many failures.\n";
-		
-			$db->remove
-			(
-				'b_browsergames',
-				"b_id = ".$data['b_id']
-			);
+			echo $data['b_url'] . " is valid. XML Has been updated.\n";
+			
+			$game->updateCache ($data['b_id']);
 		}
-		
 		else
 		{
-			$db->update
-			(
-				'b_browsergames',
-				array
+			echo $data['b_url'] . " is not valid.\n";
+		
+			// Remove if keeps failing
+			if ($data['b_failures'] > 500)
+			{
+				echo $data['b_url'] . " has been removed due to too many failures.\n";
+			
+				$db->remove
 				(
-					'b_failures' => '++',
-					'b_isValid' => 0
-				),
-				"b_id = ".$data['b_id']
-			);
+					'b_browsergames',
+					"b_id = ".$data['b_id']
+				);
+			}
+			
+			else
+			{
+				$db->update
+				(
+					'b_browsergames',
+					array
+					(
+						'b_failures' => '++',
+						'b_isValid' => 0
+					),
+					"b_id = ".$data['b_id']
+				);
+			}
 		}
 	}
 }
