@@ -173,12 +173,10 @@ class BrowserGame_Information
 					continue;
 				}
 				
-				/*
-				
 				// Check for OpenID
 				$openid = $server->getElementsByTagName ('openid_url');
 				
-				if ($openid)
+				if ($openid->length == 1)
 				{
 					$openid = $openid->item(0);
 					
@@ -191,7 +189,6 @@ class BrowserGame_Information
 						$toRemove[] = $openid;
 					}
 				}
-				*/
 			}
 		}
 		
