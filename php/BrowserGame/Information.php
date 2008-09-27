@@ -123,7 +123,7 @@ class BrowserGame_Information
 		if ($logo)
 		{
 			// Fetch the image size
-			$size = getimagesize ($logo->nodeValue);
+			$size = @getimagesize ($logo->nodeValue);
 			if (!$size || $size[0] > 100 || $size[1] > 100)
 			{
 				$toRemove[] = $logo;
@@ -142,7 +142,7 @@ class BrowserGame_Information
 				$screen = $screens->item($i);
 				$url = $screen->getElementsByTagName ('url')->item(0)->nodeValue;
 				
-				$size = getimagesize ($url);
+				$size = @getimagesize ($url);
 				if (!$size)
 				{
 					$this->sWarnings[] = 'One of your screenshots is not a valid image.';
