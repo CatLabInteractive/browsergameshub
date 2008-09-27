@@ -142,11 +142,10 @@ class BrowserGame_Information
 				$screen = $screens->item($i);
 				$url = $screen->getElementsByTagName ('url')->item(0)->nodeValue;
 				
-				$size = @getimagesize ($url);
+				$size = @getimagesize (trim ($url));
 				if (!$size)
 				{
 					$this->sWarnings[] = 'One of your screenshots is not a valid image: <br />'.$url;
-					
 					$toRemove[] = $screen;
 				}
 			}
