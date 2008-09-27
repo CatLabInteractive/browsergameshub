@@ -163,7 +163,6 @@ class BrowserGame_Information
 			{
 				$server = $servers->item ($i);
 								
-				/*
 				$game_url = $server->getElementsByTagName ('game_url')->item (0)->nodeValue;
 				
 				if (!$this->isSiteOnline ($game_url))
@@ -173,6 +172,8 @@ class BrowserGame_Information
 					
 					continue;
 				}
+				
+				/*
 				
 				// Check for OpenID
 				$openid = $server->getElementsByTagName ('openid_url');
