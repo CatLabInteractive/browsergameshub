@@ -11,7 +11,7 @@ $l = $db->select
 	'b_browsergames',
 	array ('*'),
 	null,
-	'b_lastCheck DESC'
+	'b_lastCheck ASC'
 );
 
 foreach ($l as $data)
