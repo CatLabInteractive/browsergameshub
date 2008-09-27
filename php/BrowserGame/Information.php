@@ -33,6 +33,7 @@ class BrowserGame_Information
 				return false;
 			}
 			
+			$this->dom->preserveWhiteSpace = false;
 			$this->dom = DOMDocument::loadXML ($content);
 		}
 		return $this->dom;
@@ -123,7 +124,7 @@ class BrowserGame_Information
 		if ($logo)
 		{
 			// Fetch the image size
-			$size = @getimagesize (trim ($logo->nodeValue));
+			$size = @getimagesize ($logo->nodeValue);
 			if (!$size || $size[0] > 100 || $size[1] > 100)
 			{
 				$toRemove[] = $logo;
