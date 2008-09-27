@@ -123,7 +123,7 @@ class BrowserGame_Information
 		if ($logo)
 		{
 			// Fetch the image size
-			$size = @getimagesize ($logo->nodeValue);
+			$size = @getimagesize (trim ($logo->nodeValue));
 			if (!$size || $size[0] > 100 || $size[1] > 100)
 			{
 				$toRemove[] = $logo;
