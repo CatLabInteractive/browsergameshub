@@ -11,7 +11,7 @@
 <h2>Are there any benefits on using this system?</h2>
 <p>Absolutely. In the first place, your game will appear on multiple websites at once. Also, the basic installation is only the first step. By adding extra information to the XML (for example, the amount of players, a list of servers and even the player ranking for each servers) you can greatly extend your impact on the web.</p>
 <p>Thanks to the <i>OpenID</i> technology (optional), you can allow players to start playing your game without going trough the whole registration process.</p>
-<p>Also, when you want to changes details about your game, you don't have to go around contacting webmasters. You simply edit your local XML file.</p>
+<p>And when your want to change your game description, you don't have to contact a dozen webmasters; you simply edit your local XML file.</p>
 
 <h2>What about bandwidth?</h2>
 <p>Our servers will contact your server once every day and cache the results. Your basic information XML will only be accessed by our servers. The optional <i>Ranking XML</i> however, will not be cached and might be accessed by third party websites.</p>

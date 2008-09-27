@@ -166,6 +166,7 @@ h1,h2,h3 {padding-top: 6px; color: #553; margin-bottom: 4px;}
 .navigation ul {
 	padding: 0;
 	border-top: 1px solid #EAEADA;
+	margin-bottom: 15px;
 }
 .navigation li {border-bottom: 1px solid #EAEADA;}
 .navigation li a {
