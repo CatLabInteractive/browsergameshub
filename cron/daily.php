@@ -14,9 +14,11 @@ $l = $db->select
 	'b_lastCheck ASC'
 );
 
+$refresh = isset ($_GET['refresh']);
+
 foreach ($l as $data)
 {
-	if (strtotime ($data['b_lastCheck']) < (time () - ($data['b_revisit'] * 60*60*24)))
+	if ($refresh || strtotime ($data['b_lastCheck']) < (time () - ($data['b_revisit'] * 60*60*24)))
 	{
 		$game = new BrowserGame_Information ($data['b_url']);
 		
