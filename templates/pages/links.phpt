@@ -9,3 +9,4 @@
 </ul>
 
 <p>Have you used our API to design a new website? Show us your creation at the <a href="<?=ABSOLUTE_URL?>forum/">Forum</a>.</p>
+<p>To get started quicly, take a look at out <a target="_BLANK" href="<?=ABSOLUTE_URL?>examples/updatescript.phps">example script</a> (PHP)</p>
