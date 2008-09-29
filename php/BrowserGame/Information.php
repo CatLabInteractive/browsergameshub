@@ -138,7 +138,7 @@ class BrowserGame_Information
 		{
 			// Fetch the image size
 			$size = @getimagesize ($banner->nodeValue);
-			if (!$size || $size[0] > 100 || $size[1] > 100)
+			if (!$size || $size[0] != 468 || $size[1] != 60)
 			{
 				$toRemove[] = $banner;
 				$this->sWarnings[] = 'Your banner is not valid. Make sure it\'s accessable and it should be 468x60 pixels precise.';
