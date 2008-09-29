@@ -132,6 +132,19 @@ class BrowserGame_Information
 			}
 		}
 		
+		// Second: 
+		$banner = $this->getElement ('banner_url');
+		if ($banner)
+		{
+			// Fetch the image size
+			$size = @getimagesize ($banner->nodeValue);
+			if (!$size || $size[0] > 100 || $size[1] > 100)
+			{
+				$toRemove[] = $banner;
+				$this->sWarnings[] = 'Your banner is not valid. Make sure it\'s accessable and it should be 468x60 pixels precise.';
+			}
+		}
+		
 		// Check screenshots
 		$screens = $this->getElement ('screenshots');
 		if ($screens)
