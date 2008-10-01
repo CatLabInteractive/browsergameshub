@@ -52,7 +52,8 @@ foreach ($l as $data)
 					array
 					(
 						'b_failures' => '++',
-						'b_isValid' => 0
+						'b_isValid' => 0,
+						'b_lastCheck' => date ('d m Y H:i:s')
 					),
 					"b_id = ".$data['b_id']
 				);
