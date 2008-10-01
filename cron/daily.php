@@ -33,7 +33,7 @@ foreach ($l as $data)
 			echo $data['b_url'] . " is not valid.\n";
 		
 			// Remove if keeps failing
-			if ($data['b_failures'] > 14)
+			if (strtotime ($data['b_lastCheck']) < time () - 60*60*24*31)
 			{
 				echo $data['b_url'] . " has been removed due to too many failures.\n";
 			
@@ -52,8 +52,7 @@ foreach ($l as $data)
 					array
 					(
 						'b_failures' => '++',
-						'b_isValid' => 0,
-						'b_lastCheck' => date ('d m Y H:i:s')
+						'b_isValid' => 0
 					),
 					"b_id = ".$data['b_id']
 				);
