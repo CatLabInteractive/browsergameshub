@@ -93,7 +93,7 @@
 			<?php } ?>
 		<?php } else { ?>
 			<tr>
-				<td class="center" colspan="4">No information provided.</td>
+				<td class="center" colspan="5">No information provided.</td>
 			</tr>
 		<?php } ?>
 	</table>
