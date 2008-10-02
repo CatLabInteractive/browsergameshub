@@ -1,5 +1,5 @@
 <h2>What is Browser Games Hub?</h2>
-<p>There are thousands of browser games around and games are created or removed every day. Browser Games Hub is an attempt to make an up-to-date list of them and allow other sites to use this list.</p>
+<p>There are thousands of browser based games (PBBG) around and games are created or removed every day. Browser Games Hub is an attempt to make an up-to-date list of them and allow other sites to use this list.</p>
 <p>Using a rather simple system with daily updates we are able to guarantee every game in the list is still online.</p>
 
 <h3>How does it work?</h3>

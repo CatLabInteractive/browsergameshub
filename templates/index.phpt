@@ -41,7 +41,7 @@
 			<div class="header">
 				<div class="title">
 					<span class="sitename"><a href="<?=BASE_URL?>">Browser Games Hub</a></span>
-					<div class="slogan">Join the semantic browser games web</div>
+					<div class="slogan">Join the semantic PBBG web</div>
 				</div>
 			</div>
 			

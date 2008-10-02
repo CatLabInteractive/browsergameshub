@@ -1,7 +1,7 @@
 <h2>Browser Games</h2>
 
 <p class="comment" style="text-align: center; font-size: 10px;">
-	Our list of browser based games is available in <a href="<?=BASE_URL?>xml/">XML</a> aswell.
+	Our list of browser based games (PBBG) is available in <a href="<?=BASE_URL?>xml/">XML</a> aswell.
 </p>
 
 <form method="get" action="<?=ABSOLUTE_URL?>list/">
