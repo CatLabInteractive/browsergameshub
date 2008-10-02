@@ -7,10 +7,11 @@
         <xs:element name="players">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="player">
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="player">
                 <xs:complexType>
                   <xs:all>
-                    <xs:element minOccurs="1" maxOccurs="1" name="nickname" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="member_id" type="xs:int" />
+                    <xs:element minOccurs="1" maxOccurs="1" name="name" type="xs:string" />
                     <xs:element minOccurs="1" name="score" type="xs:int" />
                     <xs:element minOccurs="0" maxOccurs="1" name="join_date" type="xs:dateTime" />
                     <xs:element minOccurs="0" maxOccurs="1" name="openids">
@@ -28,6 +29,44 @@
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>
+                    <xs:element name="locations">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="location">
+                            <xs:complexType>
+                              <xs:all>
+                                <xs:element minOccurs="1" maxOccurs="1" name="score" type="xs:int" />
+                                <xs:element minOccurs="0" maxOccurs="1" name="name" type="xs:string" />
+                                <xs:element minOccurs="1" maxOccurs="1" name="loc-x" type="xs:int" />
+                                <xs:element minOccurs="1" maxOccurs="1" name="loc-y" type="xs:int" />
+                                <xs:element minOccurs="0" maxOccurs="1" name="loc-z" type="xs:int" />
+                              </xs:all>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:all>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="clans">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="clan">
+                <xs:complexType>
+                  <xs:all>
+                    <xs:element name="name" type="xs:string" />
+                    <xs:element name="score" type="xs:int" />
+                    <xs:element name="members">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="member_id" type="xs:int" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
                   </xs:all>
                 </xs:complexType>
               </xs:element>
@@ -37,6 +76,15 @@
       </xs:all>
       <xs:attribute name="version" type="xs:string" use="optional" />
       <xs:attribute name="revisit" type="xs:int" use="optional" />
+      <xs:attribute name="type" use="optional">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="list" />
+            <xs:enumeration value="2d" />
+            <xs:enumeration value="3d" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
     </xs:complexType>
   </xs:element>
 </xs:schema>
