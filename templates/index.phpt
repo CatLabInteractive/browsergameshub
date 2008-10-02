@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 	<head>
 		<title>Browser Games Hub</title>
 		
@@ -18,9 +18,9 @@
 		
 		<meta name="verify-v1" content="To8H6ax30bEBO6IfgQn/lByRc8Ua2KiWowemwsRA83A=" />
 		
-		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 		
-		<meta name="description" lang="en" content="Browser Games Hub provides an up to date list of Browser Based Games (PBBG 's) which is used on multiple websites." />
+		<meta name="description" content="Browser Games Hub provides an up to date list of Browser Based Games (PBBG 's) which is used on multiple websites." />
 		<meta name="keywords" content="browser based games, browser games, pbbg, persistent browser-based games" />
 		<meta name="author" content="Neuron Interactive" />
 		
