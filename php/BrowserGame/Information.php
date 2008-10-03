@@ -202,6 +202,19 @@ class BrowserGame_Information
 						$toRemove[] = $openid;
 					}
 				}
+				
+				// Check the ranking
+				$ranking = $server->getElementsByTagName ('ranking_url');
+				if ($ranking->length == 1)
+				{
+					$ranking = $ranking->item(0);
+					$ranking_url = $ranking->nodeValue;
+					
+					if (!$this->checkRanking ($ranking_url))
+					{
+						$toRemove[] = $ranking;
+					}
+				}
 			}
 		}
 		
@@ -227,6 +240,27 @@ class BrowserGame_Information
 		foreach ($toRemove as $v)
 		{
 			$v->parentNode->removeChild ($v);
+		}
+	}
+	
+	private function checkRanking ($url)
+	{
+		$rankcheck = new DOMDOcument ();
+		$rank = @$rankcheck->load ($url);
+		if (!$rank)
+		{
+			$this->sWarnings[] = 'Could not reach Ranking API '.$url.'.';
+		}
+		elseif (!$rankcheck->schemaValidate (SCHEMA_PATH.'ranking.xsd'))
+		{
+			$warning = 'Your Ranking API <a href="'.$url.'">'.$url.'</a> is not valid.<br />Check the <a href="'.SCHEMA_URL.'ranking.xsd">XML Schema</a>.<br /><br /><strong>Errors:</strong><br />';
+			
+			foreach (libxml_display_errors () as $v)
+			{
+				$warning .= $v . "<br />";
+			}
+			
+			$this->sWarnings[] = $warning;
 		}
 	}
 	
