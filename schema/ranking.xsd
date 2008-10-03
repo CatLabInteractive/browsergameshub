@@ -17,7 +17,7 @@
                     <xs:element minOccurs="0" maxOccurs="1" name="openids">
                       <xs:complexType>
                         <xs:sequence>
-                          <xs:element name="openid" minOccurs="0">
+                          <xs:element minOccurs="0" name="openid">
                             <xs:complexType>
                               <xs:simpleContent>
                                 <xs:extension base="xs:string">
@@ -36,13 +36,27 @@
                             <xs:complexType>
                               <xs:all>
                                 <xs:element minOccurs="1" maxOccurs="1" name="score" type="xs:int" />
-                                <xs:element minOccurs="0" maxOccurs="1" name="name" type="xs:string" />
+                                <xs:element minOccurs="1" maxOccurs="1" name="name" type="xs:string" />
                                 <xs:element minOccurs="1" maxOccurs="1" name="loc-x" type="xs:int" />
                                 <xs:element minOccurs="1" maxOccurs="1" name="loc-y" type="xs:int" />
                                 <xs:element minOccurs="0" maxOccurs="1" name="loc-z" type="xs:int" />
+                                <xs:element minOccurs="0" maxOccurs="1" name="extra">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:any maxOccurs="unbounded" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
                               </xs:all>
                             </xs:complexType>
                           </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" name="extra">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:any maxOccurs="unbounded" />
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>
@@ -64,6 +78,13 @@
                       <xs:complexType>
                         <xs:sequence>
                           <xs:element name="member_id" type="xs:int" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" name="extra">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:any maxOccurs="unbounded" />
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>
