@@ -250,6 +250,8 @@ class BrowserGame_Information
 		if (!$rank)
 		{
 			$this->sWarnings[] = 'Could not reach Ranking API '.$url.'.';
+			
+			return false;
 		}
 		elseif (!$rankcheck->schemaValidate (SCHEMA_PATH.'ranking.xsd'))
 		{
@@ -261,7 +263,11 @@ class BrowserGame_Information
 			}
 			
 			$this->sWarnings[] = $warning;
+			
+			return false;
 		}
+		
+		return true;
 	}
 	
 	/*
