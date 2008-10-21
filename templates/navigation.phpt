@@ -9,7 +9,7 @@
 
 <h2 style="margin-top: 10px;">Community</h2>
 <ul>
-	<li><a href="<?=BASE_URL?>forum/" target="_BLANK">Forum</a></li>
+	<li><a href="http://forum.neuroninteractive.eu/viewforum.php?f=7" target="_BLANK">Forum</a></li>
 	<li><a href="<?=BASE_URL?>login">Login</a></li>
 </ul>
 
