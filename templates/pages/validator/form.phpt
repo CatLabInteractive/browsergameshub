@@ -1,5 +1,5 @@
 <p>Now add your game to our list by validating it. Our system will check if the XML is reachable and valid. Mind that you can validate your XML multiple times, but it will only be added once.</p>
-<form method="get" action="?p=validator">
+<form method="get" action="<?=BASE_URL?>validator/">
 	<fieldset>
 		<legend>Information XML Validator</legend>
 		<label>Information XML URL</label>
