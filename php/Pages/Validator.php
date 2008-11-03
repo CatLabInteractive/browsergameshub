@@ -4,7 +4,7 @@ class Pages_Validator extends Pages_Page
 	public function getContent ()
 	{
 		// Check for input
-		$url = Core_Tools::getInput ('_REQUEST', 'infourl', 'varchar');
+		$url = Core_Tools::getInput ('_GET', 'infourl', 'varchar');
 		
 		if ($url)
 		{
