@@ -77,10 +77,10 @@
                     <xs:element name="members">
                       <xs:complexType>
                         <xs:sequence>
-                          <xs:element name="member">
+                          <xs:element minOccurs="0" maxOccurs="unbounded" name="member">
                             <xs:complexType>
                               <xs:all>
-                                <xs:element name="member_id" type="xs:int" />
+                                <xs:element minOccurs="1" maxOccurs="1" name="member_id" type="xs:int" />
                               </xs:all>
                             </xs:complexType>
                           </xs:element>
