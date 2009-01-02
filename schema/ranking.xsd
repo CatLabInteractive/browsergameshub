@@ -18,7 +18,7 @@
                     <xs:element minOccurs="0" maxOccurs="1" name="openids">
                       <xs:complexType>
                         <xs:sequence>
-                          <xs:element minOccurs="0" name="openid">
+                          <xs:element minOccurs="0" maxOccurs="unbounded" name="openid">
                             <xs:complexType>
                               <xs:simpleContent>
                                 <xs:extension base="xs:string">
