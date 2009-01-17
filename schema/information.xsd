@@ -231,7 +231,7 @@
           </xs:complexType>
         </xs:element>
         <xs:element minOccurs="0" maxOccurs="1" name="rss_url" type="xs:anyURI" />
-        <xs:element name="banners">
+        <xs:element minOccurs="0" maxOccurs="1" name="banners">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="banner">
@@ -248,6 +248,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="banner_url" type="xs:anyURI" />
       </xs:all>
       <xs:attribute name="version" type="xs:string" use="optional" />
       <xs:attribute name="revisit" type="xs:int" use="optional" />
