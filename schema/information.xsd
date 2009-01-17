@@ -231,7 +231,23 @@
           </xs:complexType>
         </xs:element>
         <xs:element minOccurs="0" maxOccurs="1" name="rss_url" type="xs:anyURI" />
-        <xs:element minOccurs="0" maxOccurs="1" name="banner_url" type="xs:anyURI" />
+        <xs:element name="banners">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="banner">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:anyURI">
+                      <xs:attribute name="width" type="xs:int" use="required" />
+                      <xs:attribute name="height" type="xs:int" use="required" />
+                      <xs:attribute name="lang" type="xs:string" use="optional" />
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:all>
       <xs:attribute name="version" type="xs:string" use="optional" />
       <xs:attribute name="revisit" type="xs:int" use="optional" />
