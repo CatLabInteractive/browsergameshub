@@ -234,7 +234,7 @@
         <xs:element minOccurs="0" maxOccurs="1" name="banners">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="banner">
+              <xs:element minOccurs="1" maxOccurs="unbounded" name="banner">
                 <xs:complexType>
                   <xs:simpleContent>
                     <xs:extension base="xs:anyURI">
