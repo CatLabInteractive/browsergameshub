@@ -83,7 +83,7 @@ class Pages_Convert extends Pages_Xml
 	private function getGameConvertion ($id)
 	{
 		$xmlobj = simplexml_load_file (CACHE_PATH.'information/'.$id.'.xml');
-		return self::convertSimpleXmlElementObjectIntoArray ($xmlobj);
+		return xml2json::convertSimpleXmlElementObjectIntoArray ($xmlobj);
 	}
 	
 	/*
