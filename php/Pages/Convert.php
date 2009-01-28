@@ -80,7 +80,7 @@ class Pages_Convert extends Pages_Xml
 	/*
 		Return data for one game
 	*/
-	private function getGamelistConvertion ($id)
+	private function getGameConvertion ($id)
 	{
 		$xmlobj = simplexml_load_file (CACHE_PATH.'information/'.$id.'.xml');
 		return self::convertSimpleXmlElementObjectIntoArray ($xmlobj);
