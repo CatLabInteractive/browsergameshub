@@ -1,7 +1,7 @@
 <?php
 class Pages_Xml extends Pages_Page
 {
-	public function getOutput ()
+	public function getOutput ($addHeaders = true)
 	{
 		$output = array ();
 		
@@ -34,8 +34,12 @@ class Pages_Xml extends Pages_Page
 			);
 		}
 		
-		header ('Content-type: text/xml');
-		echo Core_Tools::output_xml ($output, 0.1, 'browsergames');
+		if ($addHeaders)
+		{
+			header ('Content-type: text/xml');
+		}
+		
+		return Core_Tools::output_xml ($output, 1, 'browsergames');
 	}
 }
 ?>

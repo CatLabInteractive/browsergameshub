@@ -651,7 +651,7 @@ class Core_Tools
 		writexml ($xml, $data);
 
 		$xml->endElement();
-		echo $xml->outputMemory(true);
+		return $xml->outputMemory(true);
 	}
 }
 
