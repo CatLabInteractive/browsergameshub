@@ -160,7 +160,8 @@ class xml2json {
 	June/01/2007  	
 	=============================================================================
 	*/		
-	public static function convertSimpleXmlElementObjectIntoArray($simpleXmlElementObject, &$recursionDepth=0) {		
+	public static function convertSimpleXmlElementObjectIntoArray($simpleXmlElementObject, &$recursionDepth=0)
+	{ 
 		// Keep an eye on how deeply we are involved in recursion.
 		if ($recursionDepth > MAX_RECURSION_DEPTH_ALLOWED) {
 			// Fatal error. Exit now.
