@@ -1,3 +1,5 @@
+<p class="false" style="text-align: center;">Only <u>browser based games</u> are allowed in this list. Links to regular or promotional websites, even websites about games, will be removed.</p>
+
 <h2>Installation</h2>
 <p>For a simple installation, only 3 steps are required:</p>
 
