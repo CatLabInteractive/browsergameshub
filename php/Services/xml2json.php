@@ -203,12 +203,10 @@ class xml2json {
        			// Uncomment the following block of code if XML attributes are  
        			// NOT required to be returned as part of the result array.       			
        			/*
-       			
   	     		if((is_string($key)) && ($key == SIMPLE_XML_ELEMENT_OBJECT_PROPERTY_FOR_ATTRIBUTES)) {
   	     			continue;
        			}
        			*/
-       			
        			// Let us recursively process the current element we just visited.
 				// Increase the recursion depth by one.
 				$recursionDepth++;	       			
