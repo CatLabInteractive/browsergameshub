@@ -160,8 +160,7 @@ class xml2json {
 	June/01/2007  	
 	=============================================================================
 	*/		
-	public static function orgConvertSimpleXmlElementObjectIntoArray($simpleXmlElementObject, &$recursionDepth=0) 
-	{
+	public static function convertSimpleXmlElementObjectIntoArray($simpleXmlElementObject, &$recursionDepth=0) {		
 		// Keep an eye on how deeply we are involved in recursion.
 		if ($recursionDepth > MAX_RECURSION_DEPTH_ALLOWED) {
 			// Fatal error. Exit now.
@@ -204,17 +203,19 @@ class xml2json {
        			// Uncomment the following block of code if XML attributes are  
        			// NOT required to be returned as part of the result array.       			
        			/*
+       			
   	     		if((is_string($key)) && ($key == SIMPLE_XML_ELEMENT_OBJECT_PROPERTY_FOR_ATTRIBUTES)) {
   	     			continue;
        			}
        			*/
+       			
        			// Let us recursively process the current element we just visited.
 				// Increase the recursion depth by one.
 				$recursionDepth++;	       			
            		$resultArray[$key] = xml2json::convertSimpleXmlElementObjectIntoArray($value, $recursionDepth);
            		// Decrease the recursion depth by one.
            		$recursionDepth--;
-       		} // End of foreach($simpleXmlElementObject as $key=>$value) {		
+       		} // End of foreach($simpleXmlElementObject as $key=>$value) 
 
        		if ($recursionDepth == 0) {
 				// That is it. We are heading to the exit now.
@@ -228,77 +229,6 @@ class xml2json {
        		
        		return ($resultArray);
    		} else {
-   			// We are now looking at either the XML attribute text or 
-   			// the text between the XML tags.
-   			return (trim(strval($simpleXmlElementObject)));
-   		} // End of else
-	} // End of function convertSimpleXmlElementObjectIntoArray. 
-	
-	public static function convertSimpleXmlElementObjectIntoArray($simpleXmlElementObject, &$recursionDepth=0) 
-	{
-		
-		// Keep an eye on how deeply we are involved in recursion.
-		if ($recursionDepth > MAX_RECURSION_DEPTH_ALLOWED) {
-			// Fatal error. Exit now.
-			return(null);
-		}
-
-		if ($recursionDepth == 0) 
-		{
-			if (get_class($simpleXmlElementObject) != SIMPLE_XML_ELEMENT_PHP_CLASS) {
-				// If the external caller doesn't call this function initially  
-				// with a SimpleXMLElement object, return now.				
-				return(null);				
-			} else {
-				// Store the original SimpleXmlElementObject sent by the caller.
-				// We will need it at the very end when we return from here for good.
-				$callerProvidedSimpleXmlElementObject = $simpleXmlElementObject;
-			}
-		} // End of if ($recursionDepth == 0) {		
-				
-		if (get_class($simpleXmlElementObject) == SIMPLE_XML_ELEMENT_PHP_CLASS) 
-		{
-			// Get a copy of the simpleXmlElementObject
-			$copyOfsimpleXmlElementObject = $simpleXmlElementObject;
-			
-	      		// Get the object variables in the SimpleXmlElement object for us to iterate.
-       			//$simpleXmlElementObject = get_object_vars($simpleXmlElementObject);
-			$children = $simpleXmlElementObject;
-			
-			if (count ($children) > 0)
-			{
-				$resultArray = array();
-			
-				foreach ($children as $child)
-				{
-					var_dump ($child);
-				
-					$recursionDepth++;
-					$resultArray[$key] = xml2json::convertSimpleXmlElementObjectIntoArray($child, $recursionDepth);
-					// Decrease the recursion depth by one.
-					$recursionDepth--;
-				}
-			
-				if ($recursionDepth == 0) 
-				{
-					// That is it. We are heading to the exit now.
-					// Set the XML root element name as the root [top-level] key of 
-					// the associative array that we are going to return to the caller of this
-					// recursive function.
-					$tempArray = $resultArray;
-					$resultArray = array();
-					$resultArray[$callerProvidedSimpleXmlElementObject->getName()] = $tempArray;
-				
-					return ($resultArray);
-				}
-			}
-			else
-			{
-				return 'foo';
-			}
-	   	}		
-		  
-   		else {
    			// We are now looking at either the XML attribute text or 
    			// the text between the XML tags.
    			return (trim(strval($simpleXmlElementObject)));
