@@ -1,8 +1,14 @@
 <?php
-require_once (BASE_PATH.'php/Services/xml2json.php');
-
 class Pages_Convert extends Pages_Xml
 {
+	private $sAttributePrefix = '@';
+	private $domOptions;
+	
+	public function __construct ()
+	{
+		$this->domOptions = LIBXML_NOBLANKS + LIBXML_NSCLEAN;
+	}
+
 	public function getOutput ()
 	{
 		$format = self::getRequestInput (1);
@@ -54,7 +60,10 @@ class Pages_Convert extends Pages_Xml
 	private function getGamelistConvertion ($format)
 	{
 		$xml = parent::getOutput (false);
-		$data = $this->xml2array ($xml);
+		
+		$dom = DOMDocument::loadXML ($xml, $this->domOptions);
+		
+		$data = $this->xml2array ($dom);
 		
 		// Important! Replace the info_xml values to point 
 		// to the converted script!
@@ -82,16 +91,61 @@ class Pages_Convert extends Pages_Xml
 	*/
 	private function getGameConvertion ($id)
 	{
-		$xmlobj = simplexml_load_file (CACHE_PATH.'information/'.$id.'.xml');
-		return xml2json::convertSimpleXmlElementObjectIntoArray ($xmlobj);
+		$sUrl = CACHE_PATH.'information/'.$id.'.xml';
+		$sUrl = 'http://browser-games-hub.org/public/information/3.xml';
+	
+		//$xmlobj = simplexml_load_file ($sUrl);
+		//return xml2json::convertSimpleXmlElementObjectIntoArray ($xmlobj);
+		
+		
+		
+		return self::xml2array (DOMDocument::load ($sUrl, $this->domOptions));
 	}
 	
 	/*
 		Turn xml into data
 	*/
-	private function xml2array ($xml) 
+	private function xml2array ($dom) 
 	{
-		return xml2json::convertSimpleXmlElementObjectIntoArray (simplexml_load_string ($xml));
+		//return xml2json::convertSimpleXmlElementObjectIntoArray (simplexml_load_string ($xml));	
+		return $this->dom2Array ($dom);
+	}
+	
+	private function dom2Array ($node)
+	{	
+		$result = array();
+		if ($node->nodeType == XML_TEXT_NODE) 
+		{
+			$result = $node->nodeValue;
+		}
+		else 
+		{
+			if($node->hasAttributes()) 
+			{
+				$attributes = $node->attributes;
+				if(!is_null($attributes)) 
+					foreach ($attributes as $index=>$attr) 
+						$result['@'.$attr->name] = $attr->value;
+			}
+			
+			if($node->hasChildNodes())
+			{
+				$children = $node->childNodes;
+				for($i=0;$i<$children->length;$i++) 
+				{
+					$child = $children->item($i);
+					if($child->nodeName != '#text')
+						if(!isset($result[$child->nodeName]))
+							$result[$child->nodeName] = $this->dom2array($child);
+						else {
+							$aux = $result[$child->nodeName];
+							$result[$child->nodeName] = array( $aux );
+							$result[$child->nodeName][] = $this->dom2array($child);
+						}
+				}
+			}
+		}
+		return $result;
 	}
 }
 ?>
