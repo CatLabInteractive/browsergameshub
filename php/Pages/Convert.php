@@ -84,9 +84,30 @@ class Pages_Convert extends Pages_Xml
 	{
 		//$xmlobj = simplexml_load_file (CACHE_PATH.'information/'.$id.'.xml');		
 		$sUrl = CACHE_PATH.'information/'.$id.'.xml';
+		//$sUrl = 'http://browser-games-hub.org/public/information/4.xml';
 		
-		$xmlobj = simplexml_load_file ($sUrl);		
-		return xml2json::convertSimpleXmlElementObjectIntoArray ($xmlobj);
+		$xmlobj = DOMDocument::load ($sUrl);
+		
+		if (!$xmlobj)
+		{
+			return array ();
+		}
+		
+		// Fetch all description
+		$descriptions = $xmlobj->getElementsByTagName ('description');
+		
+		for ($i = 0; $i < $descriptions->length; $i ++)
+		{
+			$description = $descriptions->item($i);
+			
+			$lang = $description->getAttribute ('lang');
+			if (!empty ($lang) && $lang != 'en')
+			{
+				$description->parentNode->removeChild ($description);
+			}
+		}
+		
+		return xml2json::convertSimpleXmlElementObjectIntoArray (simplexml_import_dom ($xmlobj));
 	}
 	
 	/*
