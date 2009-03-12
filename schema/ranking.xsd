@@ -74,6 +74,7 @@
                 <xs:complexType>
                   <xs:all>
                     <xs:element name="name" type="xs:string" />
+                    <xs:element minOccurs="1" maxOccurs="1" name="clan_id" type="xs:int" />
                     <xs:element name="score" type="xs:int" />
                     <xs:element name="members">
                       <xs:complexType>
