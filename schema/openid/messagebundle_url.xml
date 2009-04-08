@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:openid="http://axschema.org/type#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+  <rdf:Description rdf:about="http://www.browser-games-hub.org/schema/openid/notify_url.xml">
+    <rdfs:label>Messagebundle URL</rdfs:label>
+    <rdfs:comment>An URL to the OpenSocial compatible message bundle.</rdfs:comment>
+    <openid:example>"http://example.com/nl_NL.xml"</openid:example>
+    <rdf:type rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"></rdf:type>
+  </rdf:Description>
+
+</rdf:RDF>
