@@ -114,6 +114,7 @@
                       </xs:simpleType>
                     </xs:element>
                     <xs:element minOccurs="1" maxOccurs="1" name="game_url" type="xs:anyURI" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="bigpoint_url" type="xs:anyURI" />
                     <xs:element minOccurs="0" maxOccurs="1" name="ranking_url" type="xs:anyURI" />
                     <xs:element minOccurs="0" maxOccurs="1" name="openid_url" type="xs:anyURI" />
                     <xs:element minOccurs="0" name="descriptions">
