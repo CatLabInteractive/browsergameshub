@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<!--Created with Liquid XML Studio 6.1.17.0 - FREE Community Edition (http://www.liquid-technologies.com)-->
 <xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="browsergameshub">
     <xs:complexType>
@@ -241,6 +240,40 @@
                     <xs:extension base="xs:anyURI">
                       <xs:attribute name="width" type="xs:int" use="required" />
                       <xs:attribute name="height" type="xs:int" use="required" />
+                      <xs:attribute name="lang" type="xs:string" use="optional" />
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="logos">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="1" maxOccurs="unbounded" name="logo">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:anyURI">
+                      <xs:attribute name="width" type="xs:int" use="required" />
+                      <xs:attribute name="height" type="xs:int" use="required" />
+                      <xs:attribute name="lang" type="xs:string" use="optional" />
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="profileimgs">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="1" maxOccurs="unbounded" name="profileimg">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:anyURI">
+                      <xs:attribute name="type" type="xs:string" use="required" />
+                      <xs:attribute name="hash" type="xs:string" use="optional" />
                       <xs:attribute name="lang" type="xs:string" use="optional" />
                     </xs:extension>
                   </xs:simpleContent>

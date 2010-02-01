@@ -178,13 +178,14 @@ class BrowserGame_Information
 								
 				$game_url = $server->getElementsByTagName ('game_url')->item (0)->nodeValue;
 				
-				if (!$this->isSiteOnline ($game_url))
+				/*if (!$this->isSiteOnline ($game_url))
 				{
 					$this->sWarnings[] = 'Could not connect to game server '.$game_url;
 					$toRemove[] = $server;
 					
 					continue;
 				}
+				*/
 				
 				// Check for OpenID
 				$openid = $server->getElementsByTagName ('openid_url');
