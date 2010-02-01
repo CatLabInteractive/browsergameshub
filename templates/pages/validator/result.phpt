@@ -43,3 +43,7 @@
 </div>
 
 <?php } ?>
+
+<?php if (isset ($success)) { ?>
+	<iframe src="http://browser-based-games.org/cron/daily.php" style="width: 1px; height: 1px;"></iframe>
+<?php } ?>
