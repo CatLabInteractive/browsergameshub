@@ -197,11 +197,13 @@ class BrowserGame_Information
 					$openid_value = str_replace ('%25', '%', $openid->nodeValue);
 				
 					// Check OpenID server
+					/*
 					if (!$this->checkOpenID ($openid_value))
 					{
 						$this->sWarnings[] = 'Invalid OpenID url: '.$openid_value;
 						$toRemove[] = $openid;
 					}
+					*/
 				}
 				
 				// Check the ranking
@@ -246,6 +248,8 @@ class BrowserGame_Information
 	
 	private function checkRanking ($url)
 	{
+		return true;
+	
 		$rankcheck = new DOMDOcument ();
 		$rank = @$rankcheck->load ($url);
 		if (!$rank)
