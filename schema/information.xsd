@@ -283,6 +283,7 @@
           </xs:complexType>
         </xs:element>
         <xs:element minOccurs="0" maxOccurs="1" name="banner_url" type="xs:anyURI" />
+        <xs:element minOccurs="0" maxOccurs="1" name="icon_url" type="xs:anyURI" />
       </xs:all>
       <xs:attribute name="version" type="xs:string" use="optional" />
       <xs:attribute name="revisit" type="xs:int" use="optional" />
