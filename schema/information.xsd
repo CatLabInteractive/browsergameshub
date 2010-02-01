@@ -6,6 +6,27 @@
         <xs:element minOccurs="0" maxOccurs="1" name="xml_url" type="xs:anyURI" />
         <xs:element minOccurs="1" maxOccurs="1" name="name" type="xs:normalizedString" />
         <xs:element minOccurs="1" maxOccurs="1" name="site_url" type="xs:anyURI" />
+        <xs:element minOccurs="0" maxOccurs="1" name="titles">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="1" maxOccurs="unbounded" name="title">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute name="lang" use="required">
+                        <xs:simpleType>
+                          <xs:restriction base="xs:language">
+                            <xs:maxLength value="2" />
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:attribute>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
         <xs:element minOccurs="0" maxOccurs="1" name="descriptions">
           <xs:complexType>
             <xs:sequence>
