@@ -32,6 +32,8 @@
 		var pageTracker = _gat._getTracker("UA-459768-15");
 		pageTracker._trackPageview();
 		</script>
+
+		<link rel="shortcut icon" href="favicon.ico" >
 	</head>
 	
 	<body>
