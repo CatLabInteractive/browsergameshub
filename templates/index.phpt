@@ -17,6 +17,7 @@
 		<script src="<?=BASE_URL?>js/lightbox.js" type="text/javascript"></script>
 		
 		<meta name="verify-v1" content="To8H6ax30bEBO6IfgQn/lByRc8Ua2KiWowemwsRA83A=" />
+		<meta name="google-site-verification" content="MG3TS9Qg5iTXhqkKmwArPurkj0bxwsRrzCnOrdwFjZs" />
 		
 		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 		
