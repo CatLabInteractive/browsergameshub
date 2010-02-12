@@ -17,8 +17,7 @@
 		<script src="<?=BASE_URL?>js/lightbox.js" type="text/javascript"></script>
 		
 		<meta name="verify-v1" content="To8H6ax30bEBO6IfgQn/lByRc8Ua2KiWowemwsRA83A=" />
-		<meta name="google-site-verification" content="MG3TS9Qg5iTXhqkKmwArPurkj0bxwsRrzCnOrdwFjZs" />
-		
+		<meta name="google-site-verification" content="3ZYk1pComLenujyb98lWSNl_9u-nLrH00OGtMSKPCs0" />		
 		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 		
 		<meta name="description" content="Browser Games Hub provides an up to date list of Browser Based Games (PBBG 's) which is used on multiple websites." />
