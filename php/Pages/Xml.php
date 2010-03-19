@@ -10,13 +10,21 @@ class Pages_Xml extends Pages_Page
 		$db = Core_Database::__getInstance ();
 		
 		// Build the where
+		$where = "b_isValid = 1";
 		
+		$openid = Core_Tools::getInput ('_GET', 'openid', 'int');
+		$verified = Core_Tools::getInput ('_GET', 'verified', 'int');
+		
+		if ($verified || $openid)
+		{
+			$where .= " AND b_openid = 1";
+		}
 		
 		$rows = $db->select
 		(
 			'b_browsergames',
 			array ('*'),
-			"b_isValid = 1"
+			$where
 		);
 		
 		foreach ($rows as $v)
