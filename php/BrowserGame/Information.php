@@ -535,7 +535,7 @@ class BrowserGame_Information
 			FROM
 				b_browsergames
 			WHERE
-				b_token = '{$db->escape ($id)}'
+				b_token = '{$db->escape ($token)}'
 		"));
 		
 		return count ($chk) == 0;
