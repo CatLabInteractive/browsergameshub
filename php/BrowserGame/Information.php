@@ -496,29 +496,95 @@ class BrowserGame_Information
 		return $out;
 	}
 	
+	/*
+		Build a token
+	*/
+	public function getToken ()
+	{
+		$name = $this->getData ('name');
+		
+		$str = strtolower(trim($name));
+		$str = preg_replace('/[^a-z0-9-]/', '-', $str);
+		$token = preg_replace('/-+/', "-", $str);
+		
+		$token = substr ($token, 0, 40);
+
+		if ($this->isTokenUnique ($token))
+		{
+			return $token;
+		}
+		
+		$i = 2;
+		
+		while (!$this->isTokenUnique ($token . $i))
+		{
+			$i ++;
+		}
+		
+		return $token . $i;
+	}
+	
+	private function isTokenUnique ($token)
+	{
+		$db = Core_Database::__getInstance ();
+		
+		$chk = $db->getDataFromQuery ($db->customQuery
+		("
+			SELECT
+				*
+			FROM
+				b_browsergames
+			WHERE
+				b_token = '{$db->escape ($id)}'
+		"));
+		
+		return count ($chk) == 0;
+	}
+	
 	public function updateCache ($id)
 	{
 		$db = Core_Database::__getInstance ();
 	
 		$cache = Core_Cache::__getInstance ('information/', 'xml');
+		
+		$data = array
+		(
+			'b_lastCheck' => date ('Y-m-d H:i:s'),
+			'b_failures' => 0,
+			'b_isValid' => 1,
+			'b_name' => $this->getData ('name'),
+			'b_genre' => $this->getData ('genre'),
+			'b_setting' => $this->getData ('setting'),
+			'b_status' => $this->getData ('status'),
+			'b_timing' => $this->getData ('timing'),
+			'b_openid' => $this->hasOpenId () ? '1' : '0',
+			'b_revisit' => min (7, max (1, intval ($this->getAttribute ('revisit'))))
+		);
+		
+		// Check voor token
+		$chk = $db->getDataFromQuery ($db->customQuery
+		("
+			SELECT
+				*
+			FROM
+				b_browsergames
+			WHERE
+				b_id = {$id}
+		"));
+		
+		if (count ($chk) > 0)
+		{
+			if (empty ($chk[0]['b_token']))
+			{
+				$data['b_token'] = $this->getToken ();
+			}
+		}
 	
 		// Update the database
 		$db->update
 		(
 			'b_browsergames',
-			array
-			(
-				'b_lastCheck' => date ('Y-m-d H:i:s'),
-				'b_failures' => 0,
-				'b_isValid' => 1,
-				'b_name' => $this->getData ('name'),
-				'b_genre' => $this->getData ('genre'),
-				'b_setting' => $this->getData ('setting'),
-				'b_status' => $this->getData ('status'),
-				'b_timing' => $this->getData ('timing'),
-				'b_openid' => $this->hasOpenId () ? '1' : '0',
-				'b_revisit' => min (7, max (1, intval ($this->getAttribute ('revisit'))))
-			),
+			$data,
 			"b_id = ".$id
 		);
 		

@@ -32,6 +32,7 @@ class Pages_Xml extends Pages_Page
 			$output['games'][] = array
 			(
 				'id' => $v['b_id'],
+				'token' => $v['b_token'],
 				'name' => $v['b_name'],
 				'genre' => $v['b_genre'],
 				'setting' => $v['b_setting'],
