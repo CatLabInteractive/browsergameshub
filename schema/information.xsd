@@ -362,7 +362,7 @@
                 <xs:complexType>
                   <xs:simpleContent>
                     <xs:extension base="xs:string">
-                      <xs:attribute name="lang" use="required">
+                      <xs:attribute name="lang" use="optional">
                         <xs:simpleType>
                           <xs:restriction base="xs:language">
                             <xs:maxLength value="2" />
