@@ -355,6 +355,37 @@
         </xs:element>
         <xs:element minOccurs="0" maxOccurs="1" name="banner_url" type="xs:anyURI" />
         <xs:element minOccurs="0" maxOccurs="1" name="icon_url" type="xs:anyURI" />
+        <xs:element minOccurs="0" maxOccurs="1" name="supports">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="1" maxOccurs="unbounded" name="support">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute name="lang" use="required">
+                        <xs:simpleType>
+                          <xs:restriction base="xs:language">
+                            <xs:maxLength value="2" />
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:attribute>
+                      <xs:attribute name="type" use="required">
+                        <xs:simpleType>
+			    <xs:restriction base="xs:string">
+			      <xs:enumeration value="email" />
+			      <xs:enumeration value="forum" />
+			      <xs:enumeration value="phone" />
+			      <xs:enumeration value="fax" />
+			    </xs:restriction>
+                        </xs:simpleType>
+                      </xs:attribute>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:all>
       <xs:attribute name="version" type="xs:string" use="optional" />
       <xs:attribute name="revisit" type="xs:int" use="optional" />
