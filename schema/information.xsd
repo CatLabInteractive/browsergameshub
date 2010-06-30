@@ -386,6 +386,22 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+
+              <xs:element minOccurs="0" maxOccurs="1" name="signature">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute name="algorithm" use="required">
+                        <xs:simpleType>
+			    <xs:restriction base="xs:string">
+			      <xs:enumeration value="SHA1" />
+			    </xs:restriction>
+                        </xs:simpleType>
+                      </xs:attribute>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
       </xs:all>
       <xs:attribute name="version" type="xs:string" use="optional" />
       <xs:attribute name="revisit" type="xs:int" use="optional" />
