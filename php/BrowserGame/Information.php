@@ -622,9 +622,9 @@ class BrowserGame_Information
 		{
 			$item = $descriptions->item ($i);
 			$attribute = $item->getAttributeNode ('lang');
-			$out[] = $attribute->value;
+			$out[$attribute->value] = $attribute->value;
 		}
-		return $out;
+		return array_values ($out);
 	}
 	
 	private function addError ($error)
