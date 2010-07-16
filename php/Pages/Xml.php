@@ -24,7 +24,8 @@ class Pages_Xml extends Pages_Page
 		(
 			'b_browsergames',
 			array ('*'),
-			$where
+			$where,
+			'b_id ASC'
 		);
 		
 		foreach ($rows as $v)
