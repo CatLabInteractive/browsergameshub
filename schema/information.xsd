@@ -168,7 +168,7 @@
               <xs:element minOccurs="0" maxOccurs="unbounded" name="server">
                 <xs:complexType>
                   <xs:all>
-                    <xs:element minOccurs="0" maxOccurs="1" name="id" type="xs:int" />
+                    <xs:element minOccurs="1" maxOccurs="1" name="id" type="xs:int" />
                     <xs:element minOccurs="1" maxOccurs="1" name="name">
                       <xs:simpleType>
                         <xs:restriction base="xs:normalizedString">
