@@ -33,7 +33,7 @@
                     <xs:element minOccurs="0" name="locations">
                       <xs:complexType>
                         <xs:sequence>
-                          <xs:element name="location">
+                          <xs:element name="location" minOccurs="0" maxOccurs="unbounded">
                             <xs:complexType>
                               <xs:all>
                                 <xs:element minOccurs="1" maxOccurs="1" name="score" type="xs:int" />
