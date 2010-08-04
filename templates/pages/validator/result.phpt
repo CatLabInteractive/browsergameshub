@@ -45,5 +45,5 @@
 <?php } ?>
 
 <?php if (isset ($success)) { ?>
-	<iframe src="http://browser-based-games.org/cron/daily.php" style="width: 1px; height: 1px;"></iframe>
+	<iframe src="http://browser-based-games.org/cron/daily.php?quick=true" style="width: 1px; height: 1px;"></iframe>
 <?php } ?>
