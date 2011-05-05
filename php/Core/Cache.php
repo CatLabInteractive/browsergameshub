@@ -18,11 +18,13 @@ class Core_Cache
 		return $in[$sDir];
 	}
 	
+	private $sDir = '';
 	private $sPath = '';
 	private $sExt = '';
 	
 	public function __construct ($sDir, $extension = 'tmp')
 	{		
+		$this->sDir = $sDir;
 		$this->sPath = CACHE_PATH . $sDir;
 		$this->sExt = '.' . $extension;
 		
@@ -45,6 +47,21 @@ class Core_Cache
 				}
 			}
 		}
+	}
+	
+	public function getFolder ($subpath = '')
+	{
+		if (!empty ($subpath))
+		{
+			$realpath = $this->sPath . '/' . $subpath;
+			$this->touchFolder ($this->sDir . '/' . $subpath);
+		}
+		else
+		{
+			$realpath = $this->sPath;
+		}
+		
+		return $realpath;
 	}
 	
 	public function hasCache ($sKey, $iLifeSpan = 86400)

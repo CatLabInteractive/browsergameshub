@@ -496,6 +496,55 @@ class BrowserGame_Information
 		return $out;
 	}
 	
+	public function getBanners ($lang = 'en')
+	{
+		$screenshots = $this->getElement ('banners');
+		if (!$screenshots)
+		{
+			return array ();
+		}
+		
+		$screenshots = $screenshots->getElementsByTagName ('banner');
+		
+		$out = array ();
+		for ($i = 0; $i < $screenshots->length; $i ++)
+		{
+			$url = $screenshots->item ($i)->nodeValue;
+			$type = $screenshots->item ($i)->getAttribute ('type');
+			if (empty ($type)) { $type = 'image'; }
+			
+			$out[] = array
+			(
+				'url' => $url,
+				'type' => $type
+			);
+		}
+		return $out;
+	}
+	
+	public function getLogos ($lang = 'en')
+	{
+		$screenshots = $this->getElement ('logos');
+		if (!$screenshots)
+		{
+			return array ();
+		}
+		
+		$screenshots = $screenshots->getElementsByTagName ('logo');
+		
+		$out = array ();
+		for ($i = 0; $i < $screenshots->length; $i ++)
+		{
+			$url = $screenshots->item ($i)->nodeValue;
+			
+			$out[] = array
+			(
+				'url' => $url
+			);
+		}
+		return $out;
+	}
+	
 	/*
 		Build a token
 	*/
