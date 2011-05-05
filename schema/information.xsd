@@ -312,6 +312,14 @@
                       <xs:attribute name="width" type="xs:int" use="required" />
                       <xs:attribute name="height" type="xs:int" use="required" />
                       <xs:attribute name="lang" type="xs:string" use="optional" />
+                      <xs:attribute name="type" type="xs:string" use="optional">
+                        <xs:simpleType>
+											    <xs:restriction base="xs:string">
+											      <xs:enumeration value="image" />
+											      <xs:enumeration value="swf" />
+											    </xs:restriction>
+                        </xs:simpleType>
+                      </xs:attribute>
                     </xs:extension>
                   </xs:simpleContent>
                 </xs:complexType>
