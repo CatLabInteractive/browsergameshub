@@ -28,6 +28,7 @@ class Pages_Game extends Pages_Page
 		$game = new BrowserGame_Information (CACHE_PATH.'information/'.intval($id).'.xml');
 		
 		$page->set ('game_url', ABSOLUTE_URL.'game/'.$id.'/'.urlencode ($game->getData ('name')).'/');
+		$page->set ('presspack_url', ABSOLUTE_URL . 'presspack/' . $id . '/' . urlencode ($game->getData ('name')));
 		
 		$servers = $game->getServers ();
 		

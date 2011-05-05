@@ -123,5 +123,5 @@
 <?php } ?>
 
 <p style="font-size: 10px; text-align: right; clear: both;">
-	Last check: <?=$lastCheck?> - <a href="<?=$xml_url?>" style="color: black;">Information in XML</a>
+	Last check: <?=$lastCheck?> - <a href="<?=$xml_url?>" style="color: black;">Information in XML</a> - <a href="<?=$presspack_url?>" style="color: black;">Download press pack</a>
 </p>
