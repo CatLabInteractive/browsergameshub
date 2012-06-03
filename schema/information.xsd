@@ -222,6 +222,7 @@
                   </xs:all>
                   <xs:attribute name="group" type="xs:normalizedString" use="optional" />
                   <xs:attribute name="prefered" type="xs:boolean" use="optional" />
+                  <xs:attribute name="visible" type="xs:boolean" use="optional" />
                   <xs:attribute name="lang" use="optional">
                     <xs:simpleType>
                       <xs:restriction base="xs:language">
