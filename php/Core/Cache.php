@@ -83,7 +83,11 @@ class Core_Cache
 	
 	public function setCache ($sKey, $sContent)
 	{
-		return file_put_contents ($this->sPath . $sKey . $this->sExt, $sContent);
+		$out = file_put_contents ($this->sPath . $sKey . $this->sExt, $sContent);
+
+		chmod ($this->sPath . $sKey . $this->sExt, 0777);
+
+		return $out;
 	}
 	
 	public function getCache ($sKey, $iLifeSpan = 86400)
