@@ -66,7 +66,11 @@
 					&nbsp;
 				</span>
 
-				<span class="right">Design by <a href="http://arcsin.se/">Arcsin</a> <a href="http://templates.arcsin.se/">Web Templates</a></span>
+				<span class="right">
+                    Design by <a href="http://arcsin.se/">Arcsin</a> <a href="http://templates.arcsin.se/">Web Templates</a> -
+                    <a href="https://github.com/CatLabInteractive/browsergameshub">Released under MIT</a>
+                </span>
+
 
 				<div class="clearer"></div>
 
