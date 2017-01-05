@@ -40,52 +40,6 @@ if (get_magic_quotes_gpc())
         unset($in);
 }
 
-/*
-	Auto load function:
-	Real OOP!
-	
-	Loads the class /php/group/class.php by calling "new Group_Class ();"
-*/
-function __autoload ($class_name) 
-{
-
-	static $cache;
-	
-	if (!isset ($cache[$class_name]))
-	{
-
-		$cache[$class_name] = true;
-
-		$v = explode ('_', $class_name);
-		
-		$p = count ($v) - 1;
-		$url = BASE_PATH.'php';
-		
-		foreach ($v as $k => $vv)
-		{
-		
-			if ($k == $p)
-			{
-				$url .= '/'.$vv.'.php';
-			}
-			
-			else {
-				$url .= '/'.$vv;
-			}
-		}
-	
-		if (file_exists ($url))
-		{
-			include_once ($url);
-		}
-		
-		else {
-			//echo ("Class not found: ".$url.".");
-			return false;
-		}
-	}
-}
-
 function libxml_display_error($error)
 {
     $return = "";

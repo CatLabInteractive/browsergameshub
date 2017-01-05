@@ -8,31 +8,13 @@
 define ('BASE_PATH', dirname (dirname (__FILE__)).'/');
 define ('STATIC_URL', '');
 
-if 
-(
-	$_SERVER['SERVER_NAME'] == 'daedelserv.local' || 
-	$_SERVER['SERVER_NAME'] == 'thijsvanderschaeghe.no-ip.com' ||
-	$_SERVER['SERVER_NAME'] == 'daedeloth.no-ip.org' ||
-	$_SERVER['SERVER_NAME'] == 'daedeloth.dyndns.org' ||
-	$_SERVER['SERVER_NAME'] == '192.168.0.100'
-)
-{
-	define ('DB_USERNAME', 'myuser');
-	define ('DB_PASSWORD', 'myuser');
-	define ('DB_SERVER', 'localhost');
-	define ('DB_DATABASE', 'browsergames');
-	
-	define ('BASE_URL', 'http://'.$_SERVER['SERVER_NAME'].'/browsergameshub/');
-}
-else
-{
-	define ('DB_USERNAME', 'browser_games');
-	define ('DB_PASSWORD', 'BmWoeJBpeOBPIjsmEZHpOIBE654EomijBEmHW');
-	define ('DB_SERVER', 'localhost');
-	define ('DB_DATABASE', 'browser_games');
-	
-	define ('BASE_URL', 'http://'.$_SERVER['SERVER_NAME'].'/');
-}
+define ('DB_USERNAME', getenv('DB_USERNAME'));
+define ('DB_PASSWORD', getenv('DB_PASSWORD'));
+define ('DB_SERVER', getenv('DB_SERVER'));
+define ('DB_DATABASE', getenv('DB_DATABASE'));
+
+define ('BASE_URL', 'http://'.$_SERVER['SERVER_NAME'].'/');
+
 
 define ('TIME_ZONE', 'Europe/Brussels');
 
@@ -45,5 +27,3 @@ define ('SCHEMA_URL', BASE_URL.'schema/');
 define ('CACHE_DIR', CACHE_PATH);
 
 define ('ABSOLUTE_URL', BASE_URL);
-
-?>
