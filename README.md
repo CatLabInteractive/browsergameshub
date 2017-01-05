@@ -1,2 +1,4 @@
-== Browser games hub ==
-Online at http://www.browsergameshub.org/
+Browser games hub
+=================
+Online at 
+http://www.browser-games-hub.org/
