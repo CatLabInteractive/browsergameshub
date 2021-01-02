@@ -13,8 +13,8 @@ define ('DB_PASSWORD', getenv('DB_PASSWORD'));
 define ('DB_SERVER', getenv('DB_SERVER'));
 define ('DB_DATABASE', getenv('DB_DATABASE'));
 
-$protocol = !isset($_SERVER['SERVER_PROTOCOL']) || stripos($_SERVER['SERVER_PROTOCOL'],'https') !== 0 ? 'http://' : 'https://';
-define ('BASE_URL', $protocol.$_SERVER['SERVER_NAME'].'/');
+define('HTTPS', isset($_SERVER['HTTPS']) && filter_var($_SERVER['HTTPS'], FILTER_VALIDATE_BOOLEAN));
+define ('BASE_URL', (HTTPS ? 'https' : 'http') . '://' . $_SERVER['SERVER_NAME'].'/');
 
 
 define ('TIME_ZONE', 'Europe/Brussels');
