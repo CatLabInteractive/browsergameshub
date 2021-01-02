@@ -1,5 +1,8 @@
 <?php
-require_once ('../php/connect.php');
+
+require __DIR__ . '/../vendor/autoload.php';
+
+require __DIR__ . '/../php/connect.php';
 
 $db = Core_Database::__getInstance ();
 
