@@ -32,9 +32,9 @@ class BrowserGame_Information
 			{
 				return false;
 			}
-			
-			$this->dom->preserveWhiteSpace = false;
+
 			$this->dom = DOMDocument::loadXML ($content);
+			$this->dom->preserveWhiteSpace = false;
 		}
 		return $this->dom;
 	}
