@@ -13,7 +13,8 @@ define ('DB_PASSWORD', getenv('DB_PASSWORD'));
 define ('DB_SERVER', getenv('DB_SERVER'));
 define ('DB_DATABASE', getenv('DB_DATABASE'));
 
-define ('BASE_URL', 'http://'.$_SERVER['SERVER_NAME'].'/');
+$protocol = stripos($_SERVER['SERVER_PROTOCOL'],'https') === 0 ? 'https://' : 'http://';
+define ('BASE_URL', $protocol.$_SERVER['SERVER_NAME'].'/');
 
 
 define ('TIME_ZONE', 'Europe/Brussels');
