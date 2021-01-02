@@ -13,7 +13,7 @@ define ('DB_PASSWORD', getenv('DB_PASSWORD'));
 define ('DB_SERVER', getenv('DB_SERVER'));
 define ('DB_DATABASE', getenv('DB_DATABASE'));
 
-$protocol = stripos($_SERVER['SERVER_PROTOCOL'],'https') === 0 ? 'https://' : 'http://';
+$protocol = !isset($_SERVER['SERVER_PROTOCOL']) || stripos($_SERVER['SERVER_PROTOCOL'],'https') !== 0 ? 'http://' : 'https://';
 define ('BASE_URL', $protocol.$_SERVER['SERVER_NAME'].'/');
 
 
